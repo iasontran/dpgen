@@ -1,4 +1,4 @@
-# Install script for directory: /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src
+# Install script for directory: /Users/Jason/Desktop/Xcode/ECE_474/dpgen/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

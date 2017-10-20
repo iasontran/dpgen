@@ -9,22 +9,22 @@
 /* Begin PBXAggregateTarget section */
 		400947954A604995A7BB5087 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 3F04703DBBF24CA4B73A59BE /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = AEC939ACFA284B95ACB0B354 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
-				B7CE237C798C47049755521C /* CMake Rules */,
+				F0B5E2A1439F4FF1BDFBB8AF /* CMake Rules */,
 			);
 			dependencies = (
-				5C8AA856E2C7440BACE082CA /* PBXTargetDependency */,
-				F360DF4C381F48469CF4866D /* PBXTargetDependency */,
+				843E6474DCB244739FBE1042 /* PBXTargetDependency */,
+				9DF7FAB6293F4626A5839834 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
 		};
 		FB27B7F7C22E4475A86700AD /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 14A1185FCEF5498ABE23EAA3 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = C1FF8140D4204466A2AF0DB7 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				30BF63C41D95480DBB17836A /* CMake Rules */,
+				FA91E32A5B30417C96EFB14A /* CMake Rules */,
 			);
 			dependencies = (
 			);
@@ -34,60 +34,27 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		C693164C5CA2490D909AD0FB /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src/main.cpp */ = {isa = PBXBuildFile; fileRef = 7CCF4CBB089C47AC87B5B89B /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src/main.cpp */; };
-		F2B7547DD7854818A650CAEC /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = EA317C64299C4A9F9B0A598A /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src/CMakeLists.txt */; };
+		3FDCBDCDBA1A40C992AA6C49 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFC9AE0FF7C74F1B9BBB0BB2 /* main.cpp */; };
+		8547EB1CC22A46B3AB07E368 /* test1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0AEB47886924D2DA10B6086 /* test1.cpp */; };
+		D1E6BFA2A21C4264AAC80EC1 /* test2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDE23F02AA0B44CF9E61BCD3 /* test2.cpp */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXBuildStyle section */
-		13A349FFA8264B48BDBBCF31 /* MinSizeRel */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = MinSizeRel;
-		};
-		1BB8EC1A51F842D4AC7FFFF5 /* Debug */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Debug;
-		};
-		3DE4FF8D99AD446DA734DD0E /* RelWithDebInfo */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = RelWithDebInfo;
-		};
-		E0E65B7D2972410CA7126576 = {
-			isa = PBXBuildStyle;
-		};
-		E4F39ED3455D418FA73FD33E /* Release */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Release;
-		};
-/* End PBXBuildStyle section */
-
 /* Begin PBXContainerItemProxy section */
-		0F40CD8DB062430AB4CFA558 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 59BB7DFA3CE541CBAD35A1C9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB27B7F7C22E4475A86700AD;
-			remoteInfo = ZERO_CHECK;
-		};
-		28A81A1E661D44E78CBB1192 /* PBXContainerItemProxy */ = {
+		234EE5B2D5DE4DEFA4C5E8D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 59BB7DFA3CE541CBAD35A1C9 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6C5BA73711604EFBA39BD3A1;
 			remoteInfo = dpgen;
 		};
-		4CE6C228B40C49C596161C55 /* PBXContainerItemProxy */ = {
+		CC6DDEA04907449A93F0C414 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59BB7DFA3CE541CBAD35A1C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB27B7F7C22E4475A86700AD;
+			remoteInfo = ZERO_CHECK;
+		};
+		EBFE574FCFEF4CE58750CE5A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 59BB7DFA3CE541CBAD35A1C9 /* Project object */;
 			proxyType = 1;
@@ -97,95 +64,111 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E38605B80614E1DA0C83844 /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		5CF930EE1B054BB8943A4AE6 /* dpgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = dpgen; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CCF4CBB089C47AC87B5B89B /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
-		E8CCDAF545454C51B886ED53 /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		EA317C64299C4A9F9B0A598A /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		61067F5CC161438F8CD0148F /* dpgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = dpgen; sourceTree = BUILT_PRODUCTS_DIR; };
+		80407D306C9747A0932C84D6 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		897288C0FA2F40849D1E9C07 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		8CAC861769264EE9A577BAA9 /* test1.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = test1.h; path = src/test1.h; sourceTree = SOURCE_ROOT; };
+		AA66A644A26E4175B90127A8 /* test2.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = test2.h; path = src/test2.h; sourceTree = SOURCE_ROOT; };
+		B0AEB47886924D2DA10B6086 /* test1.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = test1.cpp; path = src/test1.cpp; sourceTree = SOURCE_ROOT; };
+		CDE23F02AA0B44CF9E61BCD3 /* test2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = test2.cpp; path = src/test2.cpp; sourceTree = SOURCE_ROOT; };
+		CFC9AE0FF7C74F1B9BBB0BB2 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		D57374554B02438B8B40AA3C /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		1D17F5DC8D1A4AB39CAA08D0 /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				F73F8D0B153F4BD28275A1C5 /* CMake Rules */,
-				0E38605B80614E1DA0C83844 /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		27CF54C9AA6842EAB97992BD /* CMake Rules */ = {
+		07BFDD2564264951A2855E47 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		64F1D69E96F7483E91F3110F = {
+		1DFC7F16EBDE4366BBD4AFD3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6BA37B3157BF46E1B29877F4 /* Sources */,
-				7E63A46A619A43B693C72BAA /* Resources */,
-				6C852D0AEF2C4259905F5E8D /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		6BA37B3157BF46E1B29877F4 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				1D17F5DC8D1A4AB39CAA08D0 /* ALL_BUILD */,
-				6C1B98FF16E54F3591115FA6 /* ZERO_CHECK */,
-				EC5E29D8342D440795E4B277 /* dpgen */,
+				44651F72004C4357AE317419 /* ALL_BUILD */,
+				768C3631E9B24373938DF4B7 /* ZERO_CHECK */,
+				7887777EB6B24B239625B142 /* dpgen */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
 		};
-		6C1B98FF16E54F3591115FA6 /* ZERO_CHECK */ = {
+		44651F72004C4357AE317419 /* ALL_BUILD */ = {
 			isa = PBXGroup;
 			children = (
-				27CF54C9AA6842EAB97992BD /* CMake Rules */,
-				E8CCDAF545454C51B886ED53 /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/CMakeLists.txt */,
+				07BFDD2564264951A2855E47 /* CMake Rules */,
+				80407D306C9747A0932C84D6 /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		747334DA713D4E55B6965B8E = {
+			isa = PBXGroup;
+			children = (
+				1DFC7F16EBDE4366BBD4AFD3 /* Sources */,
+				F41C39F044FC48F78920E0D0 /* Resources */,
+				B2B6568BDA6A4454A8F1812E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		768C3631E9B24373938DF4B7 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				B82AC69A3CE44795965D484A /* CMake Rules */,
+				897288C0FA2F40849D1E9C07 /* CMakeLists.txt */,
 			);
 			name = ZERO_CHECK;
 			sourceTree = "<group>";
 		};
-		6C852D0AEF2C4259905F5E8D /* Products */ = {
+		7887777EB6B24B239625B142 /* dpgen */ = {
 			isa = PBXGroup;
 			children = (
-				5CF930EE1B054BB8943A4AE6 /* dpgen */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7E63A46A619A43B693C72BAA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		E5D65EF474CF4159856EB1CD /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				7CCF4CBB089C47AC87B5B89B /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src/main.cpp */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		EC5E29D8342D440795E4B277 /* dpgen */ = {
-			isa = PBXGroup;
-			children = (
-				E5D65EF474CF4159856EB1CD /* Source Files */,
-				EA317C64299C4A9F9B0A598A /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src/CMakeLists.txt */,
+				F2837CBC9FF847A59B435D97 /* Source Files */,
+				78FBDACA0EEA441BB12F40B6 /* Header Files */,
+				D57374554B02438B8B40AA3C /* CMakeLists.txt */,
 			);
 			name = dpgen;
 			sourceTree = "<group>";
 		};
-		F73F8D0B153F4BD28275A1C5 /* CMake Rules */ = {
+		78FBDACA0EEA441BB12F40B6 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CAC861769264EE9A577BAA9 /* test1.h */,
+				AA66A644A26E4175B90127A8 /* test2.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		B2B6568BDA6A4454A8F1812E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61067F5CC161438F8CD0148F /* dpgen */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B82AC69A3CE44795965D484A /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		F2837CBC9FF847A59B435D97 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDE23F02AA0B44CF9E61BCD3 /* test2.cpp */,
+				B0AEB47886924D2DA10B6086 /* test1.cpp */,
+				CFC9AE0FF7C74F1B9BBB0BB2 /* main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		F41C39F044FC48F78920E0D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,18 +176,18 @@
 /* Begin PBXNativeTarget section */
 		6C5BA73711604EFBA39BD3A1 /* dpgen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76EA6DBDBC8545A6A3FFF1E9 /* Build configuration list for PBXNativeTarget "dpgen" */;
+			buildConfigurationList = 22E76E4C97354EA4BC2335AB /* Build configuration list for PBXNativeTarget "dpgen" */;
 			buildPhases = (
-				57A7A725CE7D4C38B21D2D46 /* Sources */,
+				A244074550E74B95BA57047D /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F5B461FF20AD4C72A408DE40 /* PBXTargetDependency */,
+				14BBFD8C894F4841BDE51369 /* PBXTargetDependency */,
 			);
 			name = dpgen;
 			productName = dpgen;
-			productReference = 5CF930EE1B054BB8943A4AE6 /* dpgen */;
+			productReference = 61067F5CC161438F8CD0148F /* dpgen */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -216,18 +199,14 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 0800;
 			};
-			buildConfigurationList = 738E89ED642B480088EF277D /* Build configuration list for PBXProject "dpgen_project" */;
-			buildSettings = {
-			};
-			buildStyles = (
-				1BB8EC1A51F842D4AC7FFFF5 /* Debug */,
-				E4F39ED3455D418FA73FD33E /* Release */,
-				13A349FFA8264B48BDBBCF31 /* MinSizeRel */,
-				3DE4FF8D99AD446DA734DD0E /* RelWithDebInfo */,
-			);
+			buildConfigurationList = BF887BB463E646B8A2C593BC /* Build configuration list for PBXProject "dpgen_project" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
-			mainGroup = 64F1D69E96F7483E91F3110F;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 747334DA713D4E55B6965B8E;
 			projectDirPath = ../;
 			projectRoot = "";
 			targets = (
@@ -239,7 +218,7 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		30BF63C41D95480DBB17836A /* CMake Rules */ = {
+		F0B5E2A1439F4FF1BDFBB8AF /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -247,10 +226,10 @@
 			name = "CMake Rules";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "make -C /Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode -f /Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			shellScript = "make -C /Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode -f /Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		B7CE237C798C47049755521C /* CMake Rules */ = {
+		FA91E32A5B30417C96EFB14A /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,340 +237,62 @@
 			name = "CMake Rules";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "make -C /Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode -f /Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
-			showEnvVarsInLog = 0;
-		};
-		CD080DEF6A8C46438EC29507 = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		F872662544A342EE9465C4AB = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
+			shellScript = "make -C /Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode -f /Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		57A7A725CE7D4C38B21D2D46 /* Sources */ = {
+		A244074550E74B95BA57047D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C693164C5CA2490D909AD0FB /* /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src/main.cpp */,
+				D1E6BFA2A21C4264AAC80EC1 /* test2.cpp in Sources */,
+				8547EB1CC22A46B3AB07E368 /* test1.cpp in Sources */,
+				3FDCBDCDBA1A40C992AA6C49 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5C8AA856E2C7440BACE082CA /* PBXTargetDependency */ = {
+		14BBFD8C894F4841BDE51369 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB27B7F7C22E4475A86700AD /* ZERO_CHECK */;
+			targetProxy = CC6DDEA04907449A93F0C414 /* PBXContainerItemProxy */;
+		};
+		843E6474DCB244739FBE1042 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6C5BA73711604EFBA39BD3A1 /* dpgen */;
-			targetProxy = 28A81A1E661D44E78CBB1192 /* PBXContainerItemProxy */;
+			targetProxy = 234EE5B2D5DE4DEFA4C5E8D1 /* PBXContainerItemProxy */;
 		};
-		F360DF4C381F48469CF4866D /* PBXTargetDependency */ = {
+		9DF7FAB6293F4626A5839834 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FB27B7F7C22E4475A86700AD /* ZERO_CHECK */;
-			targetProxy = 4CE6C228B40C49C596161C55 /* PBXContainerItemProxy */;
-		};
-		F5B461FF20AD4C72A408DE40 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB27B7F7C22E4475A86700AD /* ZERO_CHECK */;
-			targetProxy = 0F40CD8DB062430AB4CFA558 /* PBXContainerItemProxy */;
+			targetProxy = EBFE574FCFEF4CE58750CE5A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		15232127A08C4B048640F6A5 /* Release */ = {
+		03BF12E219894518A3AB4B71 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/build";
+			};
+			name = RelWithDebInfo;
+		};
+		19A991B043A447FF849EDF14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/build";
 			};
 			name = Release;
 		};
-		1EF8FFCC5F3548E580010054 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG   -Wall -g";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = dpgen;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/src";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		22B2EDA47BF044A4A5A778EF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		30E07DFF887E4FD8A9F71343 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG   -Wall -g";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = dpgen;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/src";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		4532CD01201847E09F27F0C3 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/build";
-			};
-			name = MinSizeRel;
-		};
-		72E1ED21ACCB4D83B91D21EF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/build";
-			};
-			name = Release;
-		};
-		74BD1783430F4A59BE7D0A44 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "     -Wall -g";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = dpgen;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/src";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		755156F4996D4958AA1B14F2 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		81DD4FA95C8D471EA6987946 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		91F405E4C5244FD0A86CA782 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		93E8CCF0B84E4BCF9325507C /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/build";
-			};
-			name = RelWithDebInfo;
-		};
-		A366D341A7DF43858C8CC747 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/build";
-			};
-			name = Debug;
-		};
-		B1B81E6920474165862417CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		BCF7217319974BC5972DA244 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		C750C10BBFA04F15AE60EBB2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		E4DB2EE90F484B599D787C5C /* Release */ = {
+		3384BAB3D2AB4B549EF55DDB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -600,64 +301,401 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG   -Wall -g";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-Wall",
+					"-g",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = dpgen;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/src";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/src";
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Release;
+		};
+		3ED9F9150C96476F966CD74E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		4B1FB1A46C484F33ADD9AE00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		5BBB94DCC18A43F192CE6D4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wall",
+					"-g",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dpgen;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/src";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		683EE6B624D14B80985DB02B /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		8FE7C515B9E64E09B6FA47F6 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		97157AB0B6984EC095DCE89B /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		A3FC59FE136E4543957A125C /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		AA48F7A2AC1B4C49BC63C5F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		C5B6F044C90240E6951637EC /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-Wall",
+					"-g",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dpgen;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/src";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		CFC0D80698924EDFBE1D4E7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		D00C934E91634443B3189E3B /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-Wall",
+					"-g",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dpgen;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/src";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		D3F138DF3B7545B6AFC28D96 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/build";
+			};
+			name = MinSizeRel;
+		};
+		D71C50F236E8464D95E0D54E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/build";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14A1185FCEF5498ABE23EAA3 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		22E76E4C97354EA4BC2335AB /* Build configuration list for PBXNativeTarget "dpgen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C750C10BBFA04F15AE60EBB2 /* Debug */,
-				22B2EDA47BF044A4A5A778EF /* Release */,
-				91F405E4C5244FD0A86CA782 /* MinSizeRel */,
-				81DD4FA95C8D471EA6987946 /* RelWithDebInfo */,
+				5BBB94DCC18A43F192CE6D4B /* Debug */,
+				3384BAB3D2AB4B549EF55DDB /* Release */,
+				D00C934E91634443B3189E3B /* MinSizeRel */,
+				C5B6F044C90240E6951637EC /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		3F04703DBBF24CA4B73A59BE /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		AEC939ACFA284B95ACB0B354 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B1B81E6920474165862417CC /* Debug */,
-				15232127A08C4B048640F6A5 /* Release */,
-				BCF7217319974BC5972DA244 /* MinSizeRel */,
-				755156F4996D4958AA1B14F2 /* RelWithDebInfo */,
+				4B1FB1A46C484F33ADD9AE00 /* Debug */,
+				CFC0D80698924EDFBE1D4E7C /* Release */,
+				8FE7C515B9E64E09B6FA47F6 /* MinSizeRel */,
+				683EE6B624D14B80985DB02B /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		738E89ED642B480088EF277D /* Build configuration list for PBXProject "dpgen_project" */ = {
+		BF887BB463E646B8A2C593BC /* Build configuration list for PBXProject "dpgen_project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A366D341A7DF43858C8CC747 /* Debug */,
-				72E1ED21ACCB4D83B91D21EF /* Release */,
-				4532CD01201847E09F27F0C3 /* MinSizeRel */,
-				93E8CCF0B84E4BCF9325507C /* RelWithDebInfo */,
+				D71C50F236E8464D95E0D54E /* Debug */,
+				19A991B043A447FF849EDF14 /* Release */,
+				D3F138DF3B7545B6AFC28D96 /* MinSizeRel */,
+				03BF12E219894518A3AB4B71 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		76EA6DBDBC8545A6A3FFF1E9 /* Build configuration list for PBXNativeTarget "dpgen" */ = {
+		C1FF8140D4204466A2AF0DB7 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				74BD1783430F4A59BE7D0A44 /* Debug */,
-				E4DB2EE90F484B599D787C5C /* Release */,
-				30E07DFF887E4FD8A9F71343 /* MinSizeRel */,
-				1EF8FFCC5F3548E580010054 /* RelWithDebInfo */,
+				3ED9F9150C96476F966CD74E /* Debug */,
+				AA48F7A2AC1B4C49BC63C5F1 /* Release */,
+				A3FC59FE136E4543957A125C /* MinSizeRel */,
+				97157AB0B6984EC095DCE89B /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -23,11 +23,11 @@ TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Applications/CMake.app/Cont
 TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Applications/CMake.app/Contents/share/cmake-3.7/Modules/Platform/Darwin-Initialize.cmake))
 TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Applications/CMake.app/Contents/share/cmake-3.7/Modules/Platform/Darwin.cmake))
 TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Applications/CMake.app/Contents/share/cmake-3.7/Modules/Platform/UnixPaths.cmake))
-TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Users/Jason/Desktop/Xcode/ECE_441/dpgen/CMakeLists.txt))
-TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/CMakeFiles/3.7.0-rc1/CMakeCCompiler.cmake))
-TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/CMakeFiles/3.7.0-rc1/CMakeCXXCompiler.cmake))
-TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/CMakeFiles/3.7.0-rc1/CMakeSystem.cmake))
-TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Users/Jason/Desktop/Xcode/ECE_441/dpgen/src/CMakeLists.txt))
+TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Users/Jason/Desktop/Xcode/ECE_474/dpgen/CMakeLists.txt))
+TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/CMakeFiles/3.7.0-rc1/CMakeCCompiler.cmake))
+TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/CMakeFiles/3.7.0-rc1/CMakeCXXCompiler.cmake))
+TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/CMakeFiles/3.7.0-rc1/CMakeSystem.cmake))
+TARGETS += $(subst $(space),$(spaceplus),$(wildcard /Users/Jason/Desktop/Xcode/ECE_474/dpgen/src/CMakeLists.txt))
 
-/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode/CMakeFiles/cmake.check_cache: $(TARGETS)
-	/Applications/CMake.app/Contents/bin/cmake -H/Users/Jason/Desktop/Xcode/ECE_441/dpgen -B/Users/Jason/Desktop/Xcode/ECE_441/dpgen/build-xcode
+/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode/CMakeFiles/cmake.check_cache: $(TARGETS)
+	/Applications/CMake.app/Contents/bin/cmake -H/Users/Jason/Desktop/Xcode/ECE_474/dpgen -B/Users/Jason/Desktop/Xcode/ECE_474/dpgen/build-xcode
