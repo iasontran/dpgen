@@ -35,8 +35,8 @@
 
 /* Begin PBXBuildFile section */
 		3FDCBDCDBA1A40C992AA6C49 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFC9AE0FF7C74F1B9BBB0BB2 /* main.cpp */; };
-		8547EB1CC22A46B3AB07E368 /* test1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0AEB47886924D2DA10B6086 /* test1.cpp */; };
-		D1E6BFA2A21C4264AAC80EC1 /* test2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDE23F02AA0B44CF9E61BCD3 /* test2.cpp */; };
+		8547EB1CC22A46B3AB07E368 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0AEB47886924D2DA10B6086 /* Input.cpp */; };
+		D1E6BFA2A21C4264AAC80EC1 /* Output.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDE23F02AA0B44CF9E61BCD3 /* Output.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,10 +67,10 @@
 		61067F5CC161438F8CD0148F /* dpgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = dpgen; sourceTree = BUILT_PRODUCTS_DIR; };
 		80407D306C9747A0932C84D6 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		897288C0FA2F40849D1E9C07 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		8CAC861769264EE9A577BAA9 /* test1.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = test1.h; path = src/test1.h; sourceTree = SOURCE_ROOT; };
-		AA66A644A26E4175B90127A8 /* test2.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = test2.h; path = src/test2.h; sourceTree = SOURCE_ROOT; };
-		B0AEB47886924D2DA10B6086 /* test1.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = test1.cpp; path = src/test1.cpp; sourceTree = SOURCE_ROOT; };
-		CDE23F02AA0B44CF9E61BCD3 /* test2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = test2.cpp; path = src/test2.cpp; sourceTree = SOURCE_ROOT; };
+		8CAC861769264EE9A577BAA9 /* Input.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Input.h; path = src/Input.h; sourceTree = SOURCE_ROOT; };
+		AA66A644A26E4175B90127A8 /* Output.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Output.h; path = src/Output.h; sourceTree = SOURCE_ROOT; };
+		B0AEB47886924D2DA10B6086 /* Input.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Input.cpp; path = src/Input.cpp; sourceTree = SOURCE_ROOT; };
+		CDE23F02AA0B44CF9E61BCD3 /* Output.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Output.cpp; path = src/Output.cpp; sourceTree = SOURCE_ROOT; };
 		CFC9AE0FF7C74F1B9BBB0BB2 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		D57374554B02438B8B40AA3C /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -133,8 +133,8 @@
 		78FBDACA0EEA441BB12F40B6 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				8CAC861769264EE9A577BAA9 /* test1.h */,
-				AA66A644A26E4175B90127A8 /* test2.h */,
+				8CAC861769264EE9A577BAA9 /* Input.h */,
+				AA66A644A26E4175B90127A8 /* Output.h */,
 			);
 			name = "Header Files";
 			sourceTree = "<group>";
@@ -157,8 +157,8 @@
 		F2837CBC9FF847A59B435D97 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				CDE23F02AA0B44CF9E61BCD3 /* test2.cpp */,
-				B0AEB47886924D2DA10B6086 /* test1.cpp */,
+				CDE23F02AA0B44CF9E61BCD3 /* Output.cpp */,
+				B0AEB47886924D2DA10B6086 /* Input.cpp */,
 				CFC9AE0FF7C74F1B9BBB0BB2 /* main.cpp */,
 			);
 			name = "Source Files";
@@ -247,8 +247,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1E6BFA2A21C4264AAC80EC1 /* test2.cpp in Sources */,
-				8547EB1CC22A46B3AB07E368 /* test1.cpp in Sources */,
+				D1E6BFA2A21C4264AAC80EC1 /* Output.cpp in Sources */,
+				8547EB1CC22A46B3AB07E368 /* Input.cpp in Sources */,
 				3FDCBDCDBA1A40C992AA6C49 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

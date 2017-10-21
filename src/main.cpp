@@ -9,7 +9,6 @@
  * Description: Main function that runs through reading and checking of file.
  *
  */
-
 /**************************************************************************************************/
 #include <cstdio>
 #include <iostream>
