@@ -19,24 +19,51 @@ Scanner::~Scanner() {
 }
 
 int Scanner::scanLine(std::string line){
+    std::string uintStr = "UInt";
+    std::string intStr = "Int";
     std::string tempLine = line;
     std::string tempBits;
-    int unsignPos = tempLine.find("UInt");
-    int signPos = tempLine.find("Int");
+    int unsignPos = tempLine.find(uintStr);
+    int signPos = tempLine.find(intStr);
+    
+    if (this->type == INPUT) {
+        removeSection(tempLine, "input ");
+    }
+    else if (this->type == OUTPUT) {
+        removeSection(tempLine, "output ");
+    }
+    else if (this->type == WIRE) {
+        removeSection(tempLine, "wire ");
+    }
+    else if (this->type == REGISTER) {
+        removeSection(tempLine, "register ");
+    }
+    else if (this->type == OPERATION) {
+        
+    }
     
     if (unsignPos != std::string::npos) {
-        int pos = unsignPos + 4;
-        tempBits = tempLine.substr(pos, 2);
+        tempBits = tempLine.substr(0, 2);
+        //int pos = unsignPos + 4;
+        //tempBits = tempLine.substr(pos, 2);
         bits.push_back(std::stoi (tempBits));
         setSign(false);
     }
     else if (signPos != std::string::npos) {
-        int pos = unsignPos + 3;
-        tempBits = tempLine.substr(pos, 2);
+        tempBits = tempLine.substr(0,2);
+        //int pos = unsignPos + 3;
+        //tempBits = tempLine.substr(pos, 2);
         bits.push_back(std::stoi (tempBits));
         setSign(true);
     }
-    tempLine = getSign() ? removeSection(tempLine, "Int") : removeSection(tempLine, "UInt");
+    if (getSign()) {
+        intStr.insert(0, tempBits);
+        removeSection(tempLine, intStr);
+    }
+    else {
+        uintStr.insert(0, tempBits);
+        removeSection(tempLine, uintStr);
+    }
     
     return 0; // No error
 }
