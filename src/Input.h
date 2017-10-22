@@ -15,13 +15,21 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include <vector>
 
 class Input {
 private:
-    
+    bool sign;
+    std::vector<std::string> vars;
+    std::vector<int> bits;
 public:
-    
+    std::string removeSection(std::string in, const std::string& substr);
+    void scanString(std::string line);
+    void setSign(bool choice);
+    std::vector<std::string> getVars() const;
+    std::vector<int> getBits() const;
+    bool getSign();
+    Input();
+    ~Input();
 };
 
 #endif

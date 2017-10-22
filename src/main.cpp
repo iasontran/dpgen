@@ -6,7 +6,7 @@
  * NetID: ichikasuto
  * Date: October 20, 2017
  *
- * Description: Main function that runs through reading and checking of file.
+ * Description:
  *
  */
 /**************************************************************************************************/
@@ -16,10 +16,13 @@
 #include <fstream>
 #include <cstring>
 #include <cctype>
+#include "Input.h"
 
 bool readFile(std::string filename) {
     std::fstream in;
     std::string line;
+    std::string temp;
+    Input* newInput = new Input;
     bool result = false;
     
     in.open(filename.c_str());
@@ -29,10 +32,13 @@ bool readFile(std::string filename) {
             line.clear();
             in >> line;
             if (line.find("//")) {
-                // remove comment section
+                std::string::size_type index = line.find("//");
+                if (index != std::string::npos) {
+                    line.erase(line.begin() + index, line.end());
+                }
             }
             if (line.find("input")) {
-                // setup input class
+                newInput->scanString(line);
             }
             else if (line.find("output")) {
                 // setup output class
