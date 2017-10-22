@@ -1,6 +1,6 @@
 /*************/
 /*
- * File: Register.cpp
+ * File: Output.cpp
  * Author: Jason Tran, Andrew Camps
  * NetID: ichikasuto, andrewcamps
  * Date: October 21, 207
@@ -8,12 +8,12 @@
  * Description:
  */
 
-#include "Register.h"
+#include "Output.h"
 
-Register::Register(){
+Output::Output(){
     
 }
 
-Register::~Register(){
+Output::~Output(){
     
 }

@@ -2,27 +2,20 @@
 
 /*
  * File: main.cpp
- * Author: Jason Tran
- * NetID: ichikasuto
+ * Author: Jason Tran, Andrew Camps
+ * NetID: ichikasuto, andrewcamps
  * Date: October 20, 2017
  *
  * Description:
  *
  */
 /**************************************************************************************************/
-#include <cstdlib>
-#include <cstdio>
-#include <iostream>
-#include <fstream>
-#include <cstring>
-#include <cctype>
-#include "Input.h"
+
+#include "Scanner.h"
 
 bool readFile(std::string filename) {
     std::fstream in;
     std::string line;
-    std::string temp;
-    Input* newInput = new Input;
     bool result = false;
     
     in.open(filename.c_str());
@@ -30,31 +23,53 @@ bool readFile(std::string filename) {
     if (in.is_open()) {     // if file is available, open and read
         while (!in.eof()) {     // execute until last line of file
             line.clear();
-            in >> line;
-            if (line.find("//")) {
-                std::string::size_type index = line.find("//");
-                if (index != std::string::npos) {
-                    line.erase(line.begin() + index, line.end());
+            std::getline(in, line);
+            std::string::size_type index;
+            
+            /* Removes all comments from line */
+            if ((index = line.find("//")) != std::string::npos) {
+                line.erase(line.begin() + index, line.end());
+            }
+            
+            /* Decide what type of statement the line is */
+            if (line.find("input ") != std::string::npos) {
+                Scanner *type_input = new Scanner(Scanner::INPUT);
+                type_input->scanLine(line);
+                
+            }
+            else if (line.find("output ") != std::string::npos) {
+                Scanner *type_output = new Scanner(Scanner::OUTPUT);
+                type_output->scanLine(line);
+                
+            }
+            else if (line.find("wire ") != std::string::npos) {
+                Scanner *type_wire = new Scanner(Scanner::WIRE);
+                type_wire->scanLine(line);
+                
+            }
+            else if (line.find("register ") != std::string::npos) {
+                Scanner *type_register = new Scanner(Scanner::REGISTER);
+                type_register->scanLine(line);
+                
+            }
+            else if(line.find("=") != std::string::npos){
+                Scanner *type_operation = new Scanner(Scanner::OPERATION);
+                type_operation->scanLine(line);
+                
+            } /* Empty line or invalid line syntax */
+            else{
+                /* Invalid input line syntax */
+                if(!line.empty()){
+                    std::cout << "Invalid line syntax: " << line << std::endl;
                 }
-            }
-            if (line.find("input")) {
-                newInput->scanString(line);
-            }
-            else if (line.find("output")) {
-                // setup output class
-            }
-            else if (line.find("wire")) {
-                // setup wire class
-            }
-            else if (line.find("=")) {
-                // setup equation
             }
         }
         result = true;      // set outcome as true for successful read
     }
     
+    /* Input file error */
     if (in.fail()) {
-        
+        std::cout << "No input file found with the name: " << filename << std::endl;
     }
     
     in.close();

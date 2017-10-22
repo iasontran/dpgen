@@ -1,6 +1,6 @@
 /*************/
 /*
- * File: Register.h
+ * File: Operation.h
  * Author: Jason Tran, Andrew Camps
  * NetID: ichikasuto, andrewcamps
  * Date: October 20, 2017
@@ -8,8 +8,8 @@
  * Description:
  */
 
-#ifndef Register_h
-#define Register_h
+#ifndef Module_h
+#define Module_h
 
 #include <cstdio>
 #include <cstdlib>
@@ -19,12 +19,12 @@
 #include <fstream>
 #include <cctype>
 
-class Register {
+class Operation {
 private:
     
 public:
-    Register();
-    ~Register();
+    Operation();
+    ~Operation();
 };
 
 #endif

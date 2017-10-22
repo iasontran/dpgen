@@ -1,8 +1,8 @@
 /*************/
 /*
  * File: Output.h
- * Author: Jason Tran
- * NetID: ichikasuto
+ * Author: Jason Tran, Andrew Camps
+ * NetID: ichikasuto, andrewcamps
  * Date: October 20, 2017
  *
  * Description:
@@ -12,16 +12,19 @@
 #define Output_h
 
 #include <cstdio>
-#include <string>
+#include <cstdlib>
+#include <iostream>
+#include <cstring>
 #include <vector>
 #include <fstream>
-#include <vector>
+#include <cctype>
 
 class Output {
 private:
     
 public:
-    
+    Output();
+    ~Output();
 };
 
 #endif

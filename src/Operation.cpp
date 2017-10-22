@@ -1,6 +1,6 @@
 /*************/
 /*
- * File: Register.cpp
+ * File: Operation.cpp
  * Author: Jason Tran, Andrew Camps
  * NetID: ichikasuto, andrewcamps
  * Date: October 21, 207
@@ -8,12 +8,12 @@
  * Description:
  */
 
-#include "Register.h"
+#include "Operation.h"
 
-Register::Register(){
+Operation::Operation(){
     
 }
 
-Register::~Register(){
+Operation::~Operation(){
     
 }
