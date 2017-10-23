@@ -28,71 +28,67 @@ bool Scanner::readFile(){
     
     in.open(this->file.c_str());
     
-    if (in.is_open()) {     // if file is available, open and read
-        while (!in.eof()) {     // execute until last line of file
-            string line;
-            getline(in, line);
-            string::size_type index;
-            
-            /* Removes all comments from line */
-            if ((index = line.find("//")) != string::npos) {
-                line.erase(line.begin() + index, line.end());
-            }
-            
-            /* Decide what type of statement the line is */
-            if ((index = line.find("input ")) != string::npos) {
-                line.erase(line.begin(), line.begin() + index);
-                if(!parseLine(line, INPUT)){
-                    cout << "Invalid line syntax: " << line << endl;
-                    return false;
-                }
-                
-            }
-            else if ((index = line.find("output ")) != string::npos) {
-                line.erase(line.begin(), line.begin() + index);
-                if(!parseLine(line, OUTPUT)){
-                    cout << "Invalid line syntax: " << line << endl;
-                    return false;
-                }
-                
-            }
-            else if ((index = line.find("wire ")) != string::npos) {
-                line.erase(line.begin(), line.begin() + index);
-                if(!parseLine(line, WIRE)){
-                    cout << "Invalid line syntax: " << line << endl;
-                    return false;
-                }
-                
-            }
-            else if ((index = line.find("register ")) != string::npos) {
-                line.erase(line.begin(), line.begin() + index);
-                if(!parseLine(line, REGISTER)){
-                    cout << "Invalid line syntax: " << line << endl;
-                    return false;
-                }
-                
-            }
-            else if((index = line.find("=")) != string::npos){
-                if(!parseLine(line, OPERATION)){
-                    cout << "Invalid line syntax: " << line << endl;
-                    return false;
-                }
-                
-            } /* Empty line or invalid line syntax */
-            else{
-                /* Invalid input line syntax */
-                if(!line.empty()){
-                    cout << "Invalid line syntax: " << line << endl;
-                    return false;
-                }
-            }
-        }
-    }
-    
-    /* Input file error */
-    if (in.fail()) {
+    if (!in.is_open()) {     // if file is available, open and read
         cout << "No input file found with the name: " << this->file << endl;
         return false;
+    }
+    
+    while (!in.eof()) {     // execute until last line of file
+        string line;
+        getline(in, line);
+        string::size_type index;
+        
+        /* Removes all comments from line */
+        if ((index = line.find("//")) != string::npos) {
+            line.erase(line.begin() + index, line.end());
+        }
+        
+        /* Decide what type of statement the line is */
+        if((index = line.find("=")) != string::npos){
+            if(!parseLine(line, OPERATION)){
+                cout << "Invalid line syntax: " << line << endl;
+                return false;
+            }
+        }
+        else if ((index = line.find("input ")) != string::npos) {
+            line.erase(line.begin(), line.begin() + index);
+            if(!parseLine(line, INPUT)){
+                cout << "Invalid line syntax: " << line << endl;
+                return false;
+            }
+            
+        }
+        else if ((index = line.find("output ")) != string::npos) {
+            line.erase(line.begin(), line.begin() + index);
+            if(!parseLine(line, OUTPUT)){
+                cout << "Invalid line syntax: " << line << endl;
+                return false;
+            }
+            
+        }
+        else if ((index = line.find("wire ")) != string::npos) {
+            line.erase(line.begin(), line.begin() + index);
+            if(!parseLine(line, WIRE)){
+                cout << "Invalid line syntax: " << line << endl;
+                return false;
+            }
+            
+        }
+        else if ((index = line.find("register ")) != string::npos) {
+            line.erase(line.begin(), line.begin() + index);
+            if(!parseLine(line, REGISTER)){
+                cout << "Invalid line syntax: " << line << endl;
+                return false;
+            }
+            
+        } /* Empty line or invalid line syntax */
+        else{
+            /* Invalid input line syntax */
+            if(!line.empty()){
+                cout << "Invalid line syntax: " << line << endl;
+                return false;
+            }
+        }
     }
     
     in.close();

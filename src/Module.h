@@ -25,6 +25,10 @@ class Module {
 private:
     string name;
     vector<Operation *> nodes;
+    vector<Output *> outputs;
+    vector<Input *> inputs;
+    vector<Register *> regs;
+    vector<Wire *> wires;
 public:
     Module(string name);
     string getName();

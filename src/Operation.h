@@ -31,10 +31,6 @@ public:
     Operation();
     ~Operation();
 private:
-    vector<Output *> outputs;
-    vector<Input *> inputs;
-    vector<Register *> regs;
-    vector<Wire *> wires;
 
 };
 
