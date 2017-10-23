@@ -23,10 +23,16 @@ using namespace std;
 
 class Output {
 private:
-    
+    bool usigned;
+    int dataWidth;
+    string name;
 public:
-    Output();
-    ~Output();
+    Output(string name, int width, bool usigned);
+    string getName() { return name; }
+    int getWidth() { return dataWidth; }
+    bool isUnsigned() { return usigned; }
+    string toString();
+
 };
 
 #endif

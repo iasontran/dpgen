@@ -110,71 +110,31 @@ bool Scanner::parseLine(string line, Type type) {
     
     switch(type){
         case INPUT:
+            Input *newInput;
             cout << "INPUT" << endl;
             
             break;
         case OUTPUT:
+            Output *newOutput;
             cout << "OUTPUT" << endl;
             
             break;
         case WIRE:
+            Wire *newWire;
             cout << "WIRE" << endl;
             
             break;
         case REGISTER:
+            Register *newRegister;
             cout << "REGISTER" << endl;
             
             break;
         case OPERATION:
+            Operation *newOp;
             cout << "OPERATION" << endl;
             
             break;
     }
     
-    /*
-    if (unsignPos != std::string::npos) {
-        tempBits = tempLine.substr(0, 2);
-        //int pos = unsignPos + 4;
-        //tempBits = tempLine.substr(pos, 2);
-        bits.push_back(std::stoi (tempBits));
-        setSign(false);
-    }
-    else if (signPos != std::string::npos) {
-        tempBits = tempLine.substr(0,2);
-        //int pos = unsignPos + 3;
-        //tempBits = tempLine.substr(pos, 2);
-        bits.push_back(std::stoi (tempBits));
-        setSign(true);
-    }
-    if (getSign()) {
-        intStr.insert(0, tempBits);
-        removeSection(tempLine, intStr);
-    }
-    else {
-        uintStr.insert(0, tempBits);
-        removeSection(tempLine, uintStr);
-    }
-     */
-    
     return true; // No error
 }
-
-/*
-string Scanner::removeSection(std::string in, const std::string& substr) {
-    std::string out = in;
-    std::string::size_type index = out.find(substr);
-    if (index != std::string::npos) {
-        in.erase(out.begin() + index, out.begin() + index + substr.length());
-    }
-    return out;
-}
-
-string trim(const std::string& str) {
-    size_t first = str.find_first_not_of(' ');
-    if (std::string::npos == first) {
-        return str;
-    }
-    size_t last = str.find_last_not_of(' ');
-    return str.substr(first, (last - first + 1));
-}
- */

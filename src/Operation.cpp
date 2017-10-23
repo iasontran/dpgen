@@ -10,10 +10,6 @@
 
 #include "Operation.h"
 
-Operation::Operation(){
-    
-}
-
-Operation::~Operation(){
-    
+Operation::Operation(Operations operation){
+    this->operation = operation;
 }

@@ -10,10 +10,12 @@
 
 #include "Output.h"
 
-Output::Output(){
-    
+Output::Output(string name, int width, bool usigned){
+    this->name = name;
+    this->dataWidth = width;
+    this->usigned = usigned;
 }
 
-Output::~Output(){
-    
+string Output::toString(){
+    return "";
 }

@@ -13,18 +13,6 @@ Input::Input(string name, int width, bool usigned){
     this->usigned = usigned;
 }
 
-string Input::getName(){
-    return this->name;
-}
-
-int Input::getWidth(){
-    return this->dataWidth;
-}
-
-bool Input::isUnsigned(){
-    return this->usigned;
-}
-
 string Input::toString(){
     string width = "";
     if(this->dataWidth > 1){

@@ -27,11 +27,14 @@
 using namespace std;
 
 class Operation {
-public:
-    Operation();
-    ~Operation();
 private:
-
+    enum Operations { REG, ADD, SUB, MUL, COMP_GT, COMP_LT, COMP_EQ, MUX2x1, SHR, SHL, DIV, MOD, INC, DEC };
+    Operations operation;
+public:
+    Operation(Operations operation);
+    Operations getOperation() { return operation; }
+    string toString();
+    
 };
 
 #endif

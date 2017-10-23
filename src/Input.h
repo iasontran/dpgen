@@ -23,9 +23,9 @@ private:
     string name;
 public:
     Input(string name, int width, bool usigned);
-    string getName();
-    int getWidth();
-    bool isUnsigned();
+    string getName() { return name; }
+    int getWidth() { return dataWidth; }
+    bool isUnsigned() { return usigned; }
     string toString();
 };
 

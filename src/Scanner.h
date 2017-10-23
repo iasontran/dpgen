@@ -19,6 +19,12 @@
 #include <fstream>
 #include <cctype>
 
+#include "Output.h"
+#include "Input.h"
+#include "Register.h"
+#include "Wire.h"
+#include "Operation.h"
+
 using namespace std;
 
 class Module;

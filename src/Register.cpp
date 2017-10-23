@@ -10,10 +10,12 @@
 
 #include "Register.h"
 
-Register::Register(){
-    
+Register::Register(string name, int width, bool usigned){
+    this->name = name;
+    this->dataWidth = width;
+    this->usigned = usigned;
 }
 
-Register::~Register(){
-    
+string Register::toString(){
+    return "";
 }

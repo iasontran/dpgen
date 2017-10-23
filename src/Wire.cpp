@@ -16,18 +16,6 @@ Wire::Wire(string name, int width, bool usigned){
     this->usigned = usigned;
 }
 
-string Wire::getName(){
-    return this->name;
-}
-
-int Wire::getWidth(){
-    return this->dataWidth;
-}
-
-bool Wire::isUnsigned(){
-    return this->usigned;
-}
-
 string Wire::toString(){
     string width = "";
     if(this->dataWidth > 1){

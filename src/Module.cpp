@@ -11,10 +11,6 @@ Module::Module(string name){
     this->name = name;
 }
 
-string Module::getName(){
-    return this->name;
-}
-
 /* Builds the data path graph */
 bool Module::buildModule(string file){
     Scanner scan(file, this);
@@ -41,12 +37,17 @@ bool Module::outputModule(string file){
     out << "module " << this->name << "(";
     // TODO: Print input and output names by cycling through vectors
     out << ");" << endl << endl;
-    // TODO: Print all input, output, wire, register and operation definitions
+    // TODO: Print all inputs, outputs, wires, registers
+    outputOperationGraph();
     out << "endmodule" << endl;
     
     out.close();
     
     return true;
+}
+
+void Module::outputOperationGraph(){
+    
 }
 
 /* Calculates the critical path of the graph */

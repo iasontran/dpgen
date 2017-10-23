@@ -29,9 +29,10 @@ private:
     vector<Input *> inputs;
     vector<Register *> regs;
     vector<Wire *> wires;
+    void outputOperationGraph();
 public:
     Module(string name);
-    string getName();
+    string getName() { return name; }
     bool buildModule(string file); /* Builds the data path graph */
     bool outputModule(string file); /* Prints the module in .v format */
     int criticalPathDelay(); /* Calculates the critical path of the graph */
