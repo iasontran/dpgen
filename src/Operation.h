@@ -8,8 +8,8 @@
  * Description:
  */
 
-#ifndef Module_h
-#define Module_h
+#ifndef Operation_h
+#define Operation_h
 
 #include <cstdio>
 #include <cstdlib>
@@ -19,12 +19,23 @@
 #include <fstream>
 #include <cctype>
 
+#include "Output.h"
+#include "Input.h"
+#include "Register.h"
+#include "Wire.h"
+
+using namespace std;
+
 class Operation {
-private:
-    
 public:
     Operation();
     ~Operation();
+private:
+    vector<Output *> outputs;
+    vector<Input *> inputs;
+    vector<Register *> regs;
+    vector<Wire *> wires;
+
 };
 
 #endif

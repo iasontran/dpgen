@@ -10,38 +10,132 @@
 
 #include "Scanner.h"
 
-Scanner::Scanner(Line_Type type) {
-    this->type = type;
+Scanner::Scanner(string file, Module *module){
+    this->file = file;
+    this->module = module;
 }
 
-Scanner::~Scanner() {
-
+/**
+ * @brief
+ *
+ *
+ *
+ * @param
+ * @return
+ */
+bool Scanner::readFile(){
+    fstream in;
+    
+    in.open(this->file.c_str());
+    
+    if (in.is_open()) {     // if file is available, open and read
+        while (!in.eof()) {     // execute until last line of file
+            string line;
+            getline(in, line);
+            string::size_type index;
+            
+            /* Removes all comments from line */
+            if ((index = line.find("//")) != string::npos) {
+                line.erase(line.begin() + index, line.end());
+            }
+            
+            /* Decide what type of statement the line is */
+            if ((index = line.find("input ")) != string::npos) {
+                line.erase(line.begin(), line.begin() + index);
+                if(!parseLine(line, INPUT)){
+                    cout << "Invalid line syntax: " << line << endl;
+                    return false;
+                }
+                
+            }
+            else if ((index = line.find("output ")) != string::npos) {
+                line.erase(line.begin(), line.begin() + index);
+                if(!parseLine(line, OUTPUT)){
+                    cout << "Invalid line syntax: " << line << endl;
+                    return false;
+                }
+                
+            }
+            else if ((index = line.find("wire ")) != string::npos) {
+                line.erase(line.begin(), line.begin() + index);
+                if(!parseLine(line, WIRE)){
+                    cout << "Invalid line syntax: " << line << endl;
+                    return false;
+                }
+                
+            }
+            else if ((index = line.find("register ")) != string::npos) {
+                line.erase(line.begin(), line.begin() + index);
+                if(!parseLine(line, REGISTER)){
+                    cout << "Invalid line syntax: " << line << endl;
+                    return false;
+                }
+                
+            }
+            else if((index = line.find("=")) != string::npos){
+                if(!parseLine(line, OPERATION)){
+                    cout << "Invalid line syntax: " << line << endl;
+                    return false;
+                }
+                
+            } /* Empty line or invalid line syntax */
+            else{
+                /* Invalid input line syntax */
+                if(!line.empty()){
+                    cout << "Invalid line syntax: " << line << endl;
+                    return false;
+                }
+            }
+        }
+    }
+    
+    /* Input file error */
+    if (in.fail()) {
+        cout << "No input file found with the name: " << this->file << endl;
+        return false;
+    }
+    
+    in.close();
+    
+    return true;
 }
 
-int Scanner::scanLine(std::string line){
-    std::string uintStr = "UInt";
-    std::string intStr = "Int";
-    std::string tempLine = line;
-    std::string tempBits;
-    int unsignPos = tempLine.find(uintStr);
-    int signPos = tempLine.find(intStr);
+/**
+ * @brief
+ *
+ *
+ *
+ * @param
+ * @return
+ */
+bool Scanner::parseLine(string line, Type type) {
+    string uintStr = "UInt";
+    string intStr = "Int";
     
-    if (this->type == INPUT) {
-        removeSection(tempLine, "input ");
-    }
-    else if (this->type == OUTPUT) {
-        removeSection(tempLine, "output ");
-    }
-    else if (this->type == WIRE) {
-        removeSection(tempLine, "wire ");
-    }
-    else if (this->type == REGISTER) {
-        removeSection(tempLine, "register ");
-    }
-    else if (this->type == OPERATION) {
-        
+    switch(type){
+        case INPUT:
+            cout << "INPUT" << endl;
+            
+            break;
+        case OUTPUT:
+            cout << "OUTPUT" << endl;
+            
+            break;
+        case WIRE:
+            cout << "WIRE" << endl;
+            
+            break;
+        case REGISTER:
+            cout << "REGISTER" << endl;
+            
+            break;
+        case OPERATION:
+            cout << "OPERATION" << endl;
+            
+            break;
     }
     
+    /*
     if (unsignPos != std::string::npos) {
         tempBits = tempLine.substr(0, 2);
         //int pos = unsignPos + 4;
@@ -64,19 +158,13 @@ int Scanner::scanLine(std::string line){
         uintStr.insert(0, tempBits);
         removeSection(tempLine, uintStr);
     }
+     */
     
-    return 0; // No error
+    return true; // No error
 }
 
-void Scanner::setSign(bool choice) {
-    this->sign = choice;
-}
-
-bool Scanner::getSign() {
-    return this->sign;
-}
-
-std::string Scanner::removeSection(std::string in, const std::string& substr) {
+/*
+string Scanner::removeSection(std::string in, const std::string& substr) {
     std::string out = in;
     std::string::size_type index = out.find(substr);
     if (index != std::string::npos) {
@@ -85,7 +173,7 @@ std::string Scanner::removeSection(std::string in, const std::string& substr) {
     return out;
 }
 
-std::string trim(const std::string& str) {
+string trim(const std::string& str) {
     size_t first = str.find_first_not_of(' ');
     if (std::string::npos == first) {
         return str;
@@ -93,11 +181,4 @@ std::string trim(const std::string& str) {
     size_t last = str.find_last_not_of(' ');
     return str.substr(first, (last - first + 1));
 }
-
-std::vector<std::string> Scanner::getVars() const {
-    return this->vars;
-}
-
-std::vector<int> Scanner::getBits() const {
-    return this->bits;
-}
+ */

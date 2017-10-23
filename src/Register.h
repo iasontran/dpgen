@@ -19,6 +19,8 @@
 #include <fstream>
 #include <cctype>
 
+using namespace std;
+
 class Register {
 private:
     

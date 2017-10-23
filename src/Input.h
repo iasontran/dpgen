@@ -1,15 +1,12 @@
-/*************/
-/*
- * File: Wire.h
- * Author: Jason Tran, Andrew Camps
- * NetID: ichikasuto, andrewcamps
- * Date: October 20, 2017
- *
- * Description:
- */
+//
+//  Input.h
+//  dpgen
+//
+//  Created by Andrew Camps on 10/22/17.
+//
 
-#ifndef Wire_h
-#define Wire_h
+#ifndef Input_h
+#define Input_h
 
 #include <cstdio>
 #include <cstdlib>
@@ -19,18 +16,17 @@
 
 using namespace std;
 
-class Wire {
+class Input {
 private:
     bool usigned;
     int dataWidth;
     string name;
 public:
-    Wire(string name, int width, bool usigned);
+    Input(string name, int width, bool usigned);
     string getName();
     int getWidth();
     bool isUnsigned();
     string toString();
 };
 
-#endif
-
+#endif /* Input_h */
