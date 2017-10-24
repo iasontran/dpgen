@@ -19,9 +19,5 @@ string Input::toString(){
         width = "[" + to_string(this->dataWidth - 1) + ":0]";
     }
     
-    return "input " + width + this->name + ";";
-}
-
-void Input::setSign(bool sign) {
-    this->usigned = sign;
+    return "input " + width + " " + this->name + ";";
 }

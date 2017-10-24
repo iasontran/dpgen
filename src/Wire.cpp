@@ -22,5 +22,5 @@ string Wire::toString(){
         width = "[" + to_string(this->dataWidth - 1) + ":0]";
     }
     
-    return "wire " + width + this->name + ";";
+    return "wire " + width + " " + this->name + ";";
 }

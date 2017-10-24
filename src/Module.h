@@ -16,8 +16,11 @@
 #include <fstream>
 #include <cctype>
 
+#include "Output.h"
+#include "Input.h"
+#include "Register.h"
+#include "Wire.h"
 #include "Operation.h"
-#include "Scanner.h"
 
 using namespace std;
 
@@ -29,6 +32,10 @@ private:
     vector<Input *> inputs;
     vector<Register *> regs;
     vector<Wire *> wires;
+    enum Type { INPUT, OUTPUT, WIRE, REGISTER, OPERATION };
+    bool readFile(string file);
+    bool getDataType(string type, int *size);
+    bool parseLine(string line, Type type);
     void outputOperationGraph();
 public:
     Module(string name);
