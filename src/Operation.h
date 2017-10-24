@@ -21,7 +21,6 @@
 
 #include "Output.h"
 #include "Input.h"
-#include "Register.h"
 #include "Wire.h"
 
 using namespace std;
@@ -30,6 +29,8 @@ class Operation {
 private:
     enum Operations { REG, ADD, SUB, MUL, COMP_GT, COMP_LT, COMP_EQ, MUX2x1, SHR, SHL, DIV, MOD, INC, DEC };
     Operations operation;
+    Output *outNext;
+    Wire *wireNext;
 public:
     Operation(Operations operation);
     Operations getOperation() { return operation; }
