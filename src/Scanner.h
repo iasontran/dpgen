@@ -18,6 +18,8 @@
 #include <vector>
 #include <fstream>
 #include <cctype>
+#include <string>
+#include <sstream>
 
 #include "Output.h"
 #include "Input.h"
@@ -38,6 +40,7 @@ private:
 public:
     Scanner(string file, Module *module);
     bool readFile();
+    vector<string> parseVars(string line);
 };
 
 #endif

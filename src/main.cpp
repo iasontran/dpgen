@@ -29,7 +29,8 @@ int main(int argc, char *argv[]) {
     
     /* Initialize the module */
     string moduleName = argv[OUTFILE];
-    moduleName.erase(moduleName.begin() + moduleName.find("."), moduleName.end());
+    //moduleName.erase(moduleName.begin() + moduleName.find("."), moduleName.end());
+    moduleName = "474a_circuit1";
     module = new Module(moduleName);
     
     /* Build module datapath from input file */

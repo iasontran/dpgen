@@ -107,34 +107,66 @@ bool Scanner::readFile(){
 bool Scanner::parseLine(string line, Type type) {
     string uintStr = "UInt";
     string intStr = "Int";
+    string varLine = line;
+    string lineList;
+    string signBits;
+    vector<string> varList;
+    bool isUnsigned = false;
+    int lineWidth = 0;
     
     switch(type){
         case INPUT:
-            Input *newInput;
             cout << "INPUT" << endl;
-            
+            varLine.erase(varLine.begin(), varLine.begin()+6);
+            signBits = varLine.substr(0, varLine.find(' '));
+            lineList = varLine.substr(varLine.find_first_of(" \t")+1);
+            varList = parseVars(lineList);
+            if (signBits.find(uintStr)) {
+                isUnsigned = true;
+                signBits.erase(signBits.begin(), signBits.begin()+5);
+            }
+            else if (signBits.find(intStr)) {
+                isUnsigned = false;
+                signBits.erase(signBits.begin(), signBits.begin()+4);
+            }
             break;
         case OUTPUT:
             Output *newOutput;
             cout << "OUTPUT" << endl;
-            
+            varLine.erase(varLine.begin(), varLine.begin()+7);
             break;
         case WIRE:
             Wire *newWire;
             cout << "WIRE" << endl;
-            
+            varLine.erase(varLine.begin(), varLine.begin()+5);
             break;
         case REGISTER:
             Register *newRegister;
             cout << "REGISTER" << endl;
-            
+            varLine.erase(varLine.begin(), varLine.begin()+9);
             break;
         case OPERATION:
             Operation *newOp;
             cout << "OPERATION" << endl;
-            
+            varLine.erase(varLine.begin(), varLine.begin()+10);
             break;
     }
     
     return true; // No error
+}
+
+vector<string> Scanner::parseVars(string line) {
+    vector<string> output = *new vector<string>();
+    stringstream ss(line);
+    
+    string i;
+    
+    while (ss >> i) {
+        if (i.find(',') != string::npos) {
+            i.erase(i.length()-1);
+        }
+        output.push_back(i);
+    }
+    
+    return output;
 }

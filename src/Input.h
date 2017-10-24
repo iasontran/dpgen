@@ -27,6 +27,7 @@ public:
     int getWidth() { return dataWidth; }
     bool isUnsigned() { return usigned; }
     string toString();
+    void setSign(bool sign);
 };
 
 #endif /* Input_h */

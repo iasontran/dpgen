@@ -21,3 +21,7 @@ string Input::toString(){
     
     return "input " + width + this->name + ";";
 }
+
+void Input::setSign(bool sign) {
+    this->usigned = sign;
+}
