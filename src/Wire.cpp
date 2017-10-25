@@ -19,8 +19,8 @@ Wire::Wire(string name, int width, bool usigned){
 string Wire::toString(){
     string width = "";
     if(this->dataWidth > 1){
-        width = "[" + to_string(this->dataWidth - 1) + ":0]";
+        width = "[" + to_string(this->dataWidth - 1) + ":0] ";
     }
     
-    return "wire " + width + " " + this->name + ";";
+    return "\twire " + width + this->name + ";";
 }

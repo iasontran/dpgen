@@ -23,19 +23,28 @@
 #include "Input.h"
 #include "Wire.h"
 
+#define NUM_INPUTS 3
+
 using namespace std;
 
+class Wire;
+class Input;
+
 class Operation {
-private:
+public:
     enum Operations { REG, ADD, SUB, MUL, COMP_GT, COMP_LT, COMP_EQ, MUX2x1, SHR, SHL, DIV, MOD, INC, DEC };
-    Operations operation;
+    Operations getOperation() { return operation; }
+    void setOperation(Operations op) {operation = op; }
+    int getOpID() { return operationID; }
+    void setOpID(int ID) { operationID = ID; }
+    string toString();
     Output *outNext;
     Wire *wireNext;
-public:
-    Operation(Operations operation);
-    Operations getOperation() { return operation; }
-    string toString();
-    
+    Wire *inWire[NUM_INPUTS];
+    Input *inInput[NUM_INPUTS];
+private:
+    Operations operation;
+    int operationID;
 };
 
 #endif

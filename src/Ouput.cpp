@@ -19,8 +19,8 @@ Output::Output(string name, int width, bool usigned){
 string Output::toString(){
     string width = "";
     if(this->dataWidth > 1){
-        width = "[" + to_string(this->dataWidth - 1) + ":0]";
+        width = "[" + to_string(this->dataWidth - 1) + ":0] ";
     }
     
-    return "output " + width + " " + this->name + ";";
+    return "\toutput " + width + this->name + ";";
 }

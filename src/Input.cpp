@@ -16,8 +16,8 @@ Input::Input(string name, int width, bool usigned){
 string Input::toString(){
     string width = "";
     if(this->dataWidth > 1){
-        width = "[" + to_string(this->dataWidth - 1) + ":0]";
+        width = "[" + to_string(this->dataWidth - 1) + ":0] ";
     }
     
-    return "input " + width + " " + this->name + ";";
+    return "\tinput " + width + this->name + ";";
 }

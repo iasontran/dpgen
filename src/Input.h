@@ -15,7 +15,11 @@
 #include <cstring>
 #include <cctype>
 
+#include "Operation.h"
+
 using namespace std;
+
+class Operation;
 
 class Input {
 private:
@@ -28,6 +32,7 @@ public:
     int getWidth() { return dataWidth; }
     bool isUnsigned() { return usigned; }
     string toString();
+    vector<Operation *> toOperations;
 };
 
 #endif /* Input_h */

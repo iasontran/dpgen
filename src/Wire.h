@@ -17,7 +17,11 @@
 #include <cstring>
 #include <cctype>
 
+#include "Operation.h"
+
 using namespace std;
+
+class Operation;
 
 class Wire {
 private:
@@ -30,6 +34,7 @@ public:
     int getWidth() { return dataWidth; }
     bool isUnsigned() { return usigned; }
     string toString();
+    vector<Operation *> toOperations;
 };
 
 #endif
