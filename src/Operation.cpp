@@ -12,6 +12,9 @@
 
 string Operation::toString(){
     string outName = outNext == NULL ? wireNext->getName() : outNext->getName();
+    int width = outNext == NULL ? wireNext->getWidth() : outNext->getWidth();
+    int width0;
+    int width1;
     string in0 = inWire[0] == NULL ? inInput[0]->getName() : inWire[0]->getName();
     string in1;
     string in2;
@@ -20,45 +23,54 @@ string Operation::toString(){
         case REG:
             in1 = inInput[1]->getName();
             in2 = inInput[2]->getName();
-            return "\tREG #() reg" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + in2 + ", " + outName + ");";
+            return "\tREG #(" + to_string(width) + ") reg" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + in2 + ", " + outName + ");";
         case INC:
-            return "\tINC #() inc" + to_string(getOpID()) + "(" + in0 + ", " + outName + ");";
+            return "\tINC #(" + to_string(width) + ") inc" + to_string(getOpID()) + "(" + in0 + ", " + outName + ");";
         case DEC:
-            return "\tDEC #() dec" + to_string(getOpID()) + "(" + in0 + ", " + outName + ");";
+            return "\tDEC #(" + to_string(width) + ") dec" + to_string(getOpID()) + "(" + in0 + ", " + outName + ");";
         case ADD:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\tADD #() add" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\tADD #(" + to_string(width) + ") add" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
         case SUB:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\tSUB #() sub" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\tSUB #(" + to_string(width) + ") sub" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
         case MUL:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\tMUL #() mul" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\tMUL #(" + to_string(width) + ") mul" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
         case COMP_GT:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\tCOMP #() comp_gt" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ", , " + ");";
+            width0 = inWire[0] == NULL ? inInput[0]->getWidth() : inWire[0]->getWidth();
+            width1 = inWire[1] == NULL ? inInput[1]->getWidth() : inWire[1]->getWidth();
+            width = width0 > width1 ? width0 : width1;
+            return "\tCOMP #(" + to_string(width) + ") comp_gt" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ", , " + ");";
         case COMP_LT:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\tCOMP #() comp_lt" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", , " + outName + ", " + ");";
+            width0 = inWire[0] == NULL ? inInput[0]->getWidth() : inWire[0]->getWidth();
+            width1 = inWire[1] == NULL ? inInput[1]->getWidth() : inWire[1]->getWidth();
+            width = width0 > width1 ? width0 : width1;
+            return "\tCOMP #(" + to_string(width) + ") comp_lt" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", , " + outName + ", " + ");";
         case COMP_EQ:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\tCOMP #() comp_eq" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", , , " + outName + ");";
+            width0 = inWire[0] == NULL ? inInput[0]->getWidth() : inWire[0]->getWidth();
+            width1 = inWire[1] == NULL ? inInput[1]->getWidth() : inWire[1]->getWidth();
+            width = width0 > width1 ? width0 : width1;
+            return "\tCOMP #(" + to_string(width) + ") comp_eq" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", , , " + outName + ");";
         case SHR:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\tSHR #() shr" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\tSHR #(" + to_string(width) + ") shr" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
         case SHL:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\tSHL #() shl" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\tSHL #(" + to_string(width) + ") shl" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
         case DIV:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\tDIV #() div" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\tDIV #(" + to_string(width) + ") div" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
         case MOD:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\tMOD #() mod" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\tMOD #(" + to_string(width) + ") mod" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
         case MUX2x1:
             in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
             in2 = inWire[2] == NULL ? inInput[2]->getName() : inWire[2]->getName();
-            return "\tMUX2x1 #() mux" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + in2 + ", " + outName + ");";
+            return "\tMUX2x1 #(" + to_string(width) + ") mux" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + in2 + ", " + outName + ");";
     }
     
     return NULL;
