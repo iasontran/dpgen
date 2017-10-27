@@ -210,13 +210,13 @@ bool Module::parseLine(vector<string> line) {
             else{
 
                 /* Register or error */
-                if(var.compare(outputs.at(i)->getName()) == 0){
+                if(var.compare(outputs.at(i)->getName()) == 0 && line.size() == 3){
                     newOp->setOperation(Operation::REG);
                     newOp->setOpID(getID(Operation::REG));
                     newOp->outNext = outputs.at(i);
                     assigned = true;
 
-                    // TODO: Check if this is a valid line
+                    
 
                     break;
                 }
@@ -241,6 +241,9 @@ bool Module::parseLine(vector<string> line) {
         /* Remove first variable and equals sign in operation line */
         line.erase(line.begin());
         line.erase(line.begin());
+        if(!line.size()){
+            return false;
+        }
 
         /* Assigns first Input or Wire to operation */
         assigned = false;
@@ -272,6 +275,17 @@ bool Module::parseLine(vector<string> line) {
 
         /* Remove second variable in operation line */
         line.erase(line.begin());
+        
+        if(!line.size()){
+            if(newOp->getOperation() == Operation::REG){
+                newOp->inInput[1] = inputs.at(0);
+                newOp->inInput[2] = inputs.at(1);
+                newOp->calcWidth();
+                newOp->setSign();
+                this->operations.push_back(newOp);
+                return true;
+            }
+        }
 
         /* ADD or INC */
         var = line.front();
@@ -351,16 +365,7 @@ bool Module::parseLine(vector<string> line) {
         } /* Invalid Line/Operator */
         else{
             
-            if(newOp->getOperation() == Operation::REG){
-                newOp->inInput[1] = inputs.at(0);
-                newOp->inInput[2] = inputs.at(1);
-                newOp->calcWidth();
-                newOp->setSign();
-                this->operations.push_back(newOp);
-                return true;
-            }
-            
-            // TODO: Check for invalid operator
+            cout << "ERROR: Invalid type -> " << var << endl;
             return false;
 
         }

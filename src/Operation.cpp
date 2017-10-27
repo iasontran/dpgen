@@ -28,6 +28,9 @@ Operation::Operation(){
         inWire[i] = NULL;
         inInput[i] = NULL;
     }
+    
+    outNext = NULL;
+    wireNext = NULL;
 }
 
 void Operation::calcWidth(){

@@ -43,8 +43,8 @@ public:
     double getDelay();
     void setSign();
     string toString();
-    Output *outNext = NULL;
-    Wire *wireNext = NULL;
+    Output *outNext;
+    Wire *wireNext;
     Wire *inWire[NUM_INPUTS];
     Input *inInput[NUM_INPUTS];
 private:
