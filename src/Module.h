@@ -14,6 +14,7 @@
 #include <cstring>
 #include <vector>
 #include <fstream>
+#include <sstream>
 #include <cctype>
 
 #include "Input.h"
@@ -28,8 +29,9 @@ private:
     enum Type { INPUT, OUTPUT, WIRE, REGISTER, OPERATION };
     bool readFile(string file);
     bool getDataType(string type, int *size);
-    bool parseLine(string line, Type type);
+    bool parseLine(vector<string> line);
     int getID(Operation::Operations operation);
+    vector<string> split(string const &input);
 public:
     Module(string name);
     string getName() { return name; }

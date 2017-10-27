@@ -11,6 +11,8 @@ Input::Input(string name, int width, bool usigned){
     this->name = name;
     this->dataWidth = width;
     this->usigned = usigned;
+    
+    
 }
 
 string Input::toString(){

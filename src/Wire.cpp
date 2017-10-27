@@ -10,10 +10,11 @@
 
 #include "Wire.h"
 
-Wire::Wire(string name, int width, bool usigned){
+Wire::Wire(string name, int width, bool usigned, bool reg){
     this->name = name;
     this->dataWidth = width;
     this->usigned = usigned;
+    this->reg = reg;
 }
 
 string Wire::toString(){

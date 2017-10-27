@@ -27,10 +27,13 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
     
-    /* Initialize the module */
+    /* Initialize the module and get module name from arg */
     string moduleName = argv[OUTFILE];
     moduleName.erase(moduleName.begin() + moduleName.find("."), moduleName.end());
-    //moduleName = "474a_circuit1";
+    string::size_type index;
+    while((index = moduleName.find('/')) != string::npos){
+        moduleName.erase(moduleName.begin(), moduleName.begin() + index + 1);
+    }
     module = new Module(moduleName);
     
     /* Build module datapath from input file */

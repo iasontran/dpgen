@@ -26,13 +26,15 @@ class Operation;
 class Wire {
 private:
     bool usigned;
+    bool reg;
     int dataWidth;
     string name;
 public:
-    Wire(string name, int width, bool usigned);
+    Wire(string name, int width, bool usigned, bool reg);
     string getName() { return name; }
     int getWidth() { return dataWidth; }
     bool isUnsigned() { return usigned; }
+    bool isRegister() { return reg; }
     string toString();
     vector<Operation *> toOperations;
 };

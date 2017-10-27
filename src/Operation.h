@@ -24,6 +24,7 @@
 #include "Wire.h"
 
 #define NUM_INPUTS 3
+#define NUM_SIZES 6
 
 using namespace std;
 
@@ -33,18 +34,37 @@ class Input;
 class Operation {
 public:
     enum Operations { REG, ADD, SUB, MUL, COMP_GT, COMP_LT, COMP_EQ, MUX2x1, SHR, SHL, DIV, MOD, INC, DEC };
+    Operation();
     Operations getOperation() { return operation; }
     void setOperation(Operations op) {operation = op; }
     int getOpID() { return operationID; }
     void setOpID(int ID) { operationID = ID; }
+    void calcWidth();
+    double getDelay();
+    void setSign();
     string toString();
-    Output *outNext;
-    Wire *wireNext;
+    Output *outNext = NULL;
+    Wire *wireNext = NULL;
     Wire *inWire[NUM_INPUTS];
     Input *inInput[NUM_INPUTS];
 private:
     Operations operation;
+    string sign;
+    bool usigned;
     int operationID;
+    int width;
+    static double reg_delay[];
+    static double add_delay[];
+    static double sub_delay[];
+    static double mul_delay[];
+    static double comp_delay[];
+    static double mux_delay[];
+    static double shr_delay[];
+    static double shl_delay[];
+    static double div_delay[];
+    static double mod_delay[];
+    static double inc_delay[];
+    static double dec_delay[];
 };
 
 #endif
