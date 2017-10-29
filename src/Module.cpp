@@ -575,5 +575,42 @@ bool Module::outputModule(string file){
  * @return
  */
 int Module::criticalPathDelay(){
+    vector<Input *> inputQueue;
+    vector<Wire *> wireQueue;
+    vector<double> inputDistance;
+    vector<double> wireDistance;
+    Input* currInput;
+    Wire* currWire;
+    unsigned long queueSize;
+    
+    // Search through all operations to initialize queue of vertices with indegree of 0
+    for (int i = 0; i < operations.size(); i++) {
+        // Search through all available input/wires of the specific operation
+        for (int j = 0; j < 3; j++) {
+            // Check if input exists
+            if (operations.at(i)->inInput[j] != NULL) {
+                // If input does exist, add to input queue since inputs always have indegree of 0
+                inputQueue.push_back(operations.at(i)->inInput[j]);
+            }
+            // Check if wire exists
+            if (operations.at(i)->inWire[j] != NULL) {
+                // If wire exists, check if wire's indegree is 0
+                if (operations.at(i)->inWire[j]->toOperations.size() == 0) {
+                    // If wire's indegree is 0, then add to wire queue
+                    wireQueue.push_back(operations.at(i)->inWire[j]);
+                }
+            }
+        }
+    }
+    
+    queueSize = inputQueue.size() + wireQueue.size();
+    int i = 0;
+    int j = 0;
+    while (queueSize != 0) {
+        currInput = inputQueue.front();
+        currWire = wireQueue.front();
+        
+    }
+    
     return 0;
 }
