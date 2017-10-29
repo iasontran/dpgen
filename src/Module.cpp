@@ -581,41 +581,57 @@ bool Module::outputModule(string file){
  * @return
  */
 int Module::criticalPathDelay(){
-    vector<Input *> inputQueue;
     vector<Wire *> wireQueue;
-    vector<double> inputDistance;
+    vector<Operation *> operationQueue;
     vector<double> wireDistance;
-    Input* currInput;
+    vector<double> operationDist;
     Wire* currWire;
+    Output* currOut;
+    Operation* currOp;
     unsigned long queueSize;
     
     // Search through all operations to initialize queue of vertices with indegree of 0
     for (int i = 0; i < operations.size(); i++) {
         // Search through all available input/wires of the specific operation
         for (int j = 0; j < 3; j++) {
-            // Check if input exists
-            if (operations.at(i)->inInput[j] != NULL) {
-                // If input does exist, add to input queue since inputs always have indegree of 0
-                inputQueue.push_back(operations.at(i)->inInput[j]);
+            // Check if input does not exists
+            if (operations.at(i)->inInput[j] == NULL) {
+                cout << "Failed searching for initial 0 indegree operations (input does not exist when needed)" << endl;
+                return -1;
             }
             // Check if wire exists
             if (operations.at(i)->inWire[j] != NULL) {
-                // If wire exists, check if wire's indegree is 0
-                if (operations.at(i)->inWire[j]->toOperations.size() == 0) {
-                    // If wire's indegree is 0, then add to wire queue
-                    wireQueue.push_back(operations.at(i)->inWire[j]);
+                cout << "Failed searching for initial 0 indegree operations (wire exists when should be input only operation)" << endl;
+            }
+        }
+        // After searching through, should satisfy if operation has only inputs and no wires, then add operation to 0 indegree operations queue
+        operationQueue.push_back(operations.at(i));
+    }
+    
+    queueSize = operationQueue.size();
+    while (queueSize != 0) {
+        currOp = operationQueue.front();
+        // If updated variable is a wire, begin looking at its next operations
+        if (currOp->wireNext != NULL) {
+            currWire = currOp->wireNext;
+            for (int i = 0; i < currWire->toOperations.size(); i++) {
+                // If when searching, the current operation is found, skip onto the next iteration
+                if (currOp == currWire->toOperations.at(i)) {
+                    continue;
+                }
+                else {
+                    
                 }
             }
         }
-    }
-    
-    queueSize = inputQueue.size() + wireQueue.size();
-    int i = 0;
-    int j = 0;
-    while (queueSize != 0) {
-        currInput = inputQueue.front();
-        currWire = wireQueue.front();
-        
+        else if (currOp->outNext != NULL) {
+            currOut = currOp->outNext;
+            // At end of critical path, update final distance
+        }
+        else {
+            cout << "Something went wrong when looking at queue (no wire or output result for operaation)" << endl;
+            return -1;
+        }
     }
     
     return 0;
