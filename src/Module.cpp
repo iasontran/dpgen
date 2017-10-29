@@ -370,8 +370,14 @@ bool Module::parseLine(vector<string> line) {
 
         }
 
-        /* Remove operator in operation line */
-        line.erase(line.begin());
+        /* Remove operator in operation line if and only if...
+		   operator hasn't been removed already*/
+		if (!((newOp->getOperation() == Operation::ADD) 
+			|| (newOp->getOperation() == Operation::INC)
+			|| (newOp->getOperation() == Operation::SUB)
+			|| (newOp->getOperation() == Operation::DEC))) {
+			line.erase(line.begin());
+		};
 
         /* Assign out Input or Wire to operation */
         assigned = false;

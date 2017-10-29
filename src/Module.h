@@ -16,6 +16,7 @@
 #include <fstream>
 #include <sstream>
 #include <cctype>
+#include <iterator>
 
 #include "Input.h"
 #include "Output.h"

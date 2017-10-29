@@ -13,6 +13,7 @@
 #include <vector>
 #include <iostream>
 #include <cstring>
+#include <string>
 #include <cctype>
 
 #include "Operation.h"

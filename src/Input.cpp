@@ -7,6 +7,7 @@
 
 #include "Input.h"
 
+
 Input::Input(string name, int width, bool usigned){
     this->name = name;
     this->dataWidth = width;

@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <cstring>
+#include <string>
 #include <vector>
 #include <fstream>
 #include <cctype>
