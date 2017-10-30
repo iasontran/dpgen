@@ -39,6 +39,7 @@ public:
     bool buildModule(string file); /* Builds the data path graph */
     bool outputModule(string file); /* Prints the module in .v format */
     double criticalPathDelay(); /* Calculates the critical path of the graph */
+    double criticalPathDelay2(); /* Calculates the critical path of the graph */
     vector<Operation *> operations;
     vector<Output *> outputs;
     vector<Input *> inputs;

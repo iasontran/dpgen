@@ -16,6 +16,7 @@ g = dLTe ? d : e
 h = dEQe ? g : f 
 greg = g
 hreg = h
+xrin = greg / b
 xrin = hreg << dLTe
 zrin = greg >> dEQe
 x = xrin
