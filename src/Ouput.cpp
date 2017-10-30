@@ -14,6 +14,7 @@ Output::Output(string name, int width, bool usigned){
     this->name = name;
     this->dataWidth = width;
     this->usigned = usigned;
+    this->outDelay = -1;
 }
 
 string Output::toString(){

@@ -15,6 +15,7 @@ Wire::Wire(string name, int width, bool usigned, bool reg){
     this->dataWidth = width;
     this->usigned = usigned;
     this->reg = reg;
+    this->outDelay = -1;
 }
 
 string Wire::toString(){

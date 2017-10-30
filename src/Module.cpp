@@ -1,9 +1,12 @@
-//
-//  Module.cpp
-//  dpgen
-//
-//  Created by Andrew Camps on 10/22/17.
-//
+/*************/
+/*
+ * File: Module.cpp
+ * Author: Jason Tran, Andrew Camps
+ * NetID: ichikasuto, andrewcamps
+ * Date: October 20, 2017
+ *
+ * Description:
+ */
 
 #include "Module.h"
 
@@ -20,8 +23,9 @@ Module::Module(string name){
  * @return
  */
 bool Module::buildModule(string file){
+    
+    /* Reads file */
     if(!readFile(file)){
-        cout << "Error reading file" << endl;
         return false;
     }
     
@@ -62,7 +66,7 @@ bool Module::readFile(string file){
         
         /* Parse line */
         if(!parseLine(split(line))){
-            cout << "Invalid line syntax: " << line << endl;
+            cout << "Invalid line: " << line << endl;
             return false;
         }
     }
@@ -208,16 +212,11 @@ bool Module::parseLine(vector<string> line) {
                 break;
             } /* REG operation */
             else{
-
                 /* Register or error */
                 if(var.compare(outputs.at(i)->getName()) == 0 && line.size() == 3){
                     newOp->setOperation(Operation::REG);
-                    newOp->setOpID(getID(Operation::REG));
                     newOp->outNext = outputs.at(i);
                     assigned = true;
-
-                    
-
                     break;
                 }
             }
@@ -278,6 +277,7 @@ bool Module::parseLine(vector<string> line) {
         
         if(!line.size()){
             if(newOp->getOperation() == Operation::REG){
+                newOp->setOpID(getID(Operation::REG));
                 newOp->inInput[1] = inputs.at(0);
                 newOp->inInput[2] = inputs.at(1);
                 newOp->calcWidth();
@@ -292,7 +292,7 @@ bool Module::parseLine(vector<string> line) {
         if(var.compare("+") == 0){
             line.erase(line.begin());
             var = line.front();
-            if(name.compare("1") == 0){
+            if(var.compare("1") == 0){
                 newOp->setOperation(Operation::INC);
                 newOp->setOpID(getID(Operation::INC));
                 newOp->calcWidth();
@@ -311,7 +311,7 @@ bool Module::parseLine(vector<string> line) {
         else if(var.compare("-") == 0){
             line.erase(line.begin());
             var = line.front();
-            if(name.compare("1") == 0){
+            if(var.compare("1") == 0){
                 newOp->setOperation(Operation::DEC);
                 newOp->setOpID(getID(Operation::DEC));
                 newOp->calcWidth();
@@ -364,20 +364,14 @@ bool Module::parseLine(vector<string> line) {
             newOp->setOpID(getID(Operation::MOD));
         } /* Invalid Line/Operator */
         else{
-            
             cout << "ERROR: Invalid type -> " << var << endl;
             return false;
-
         }
-
-        /* Remove operator in operation line if and only if...
-		   operator hasn't been removed already*/
-		if (!((newOp->getOperation() == Operation::ADD) 
-			|| (newOp->getOperation() == Operation::INC)
-			|| (newOp->getOperation() == Operation::SUB)
-			|| (newOp->getOperation() == Operation::DEC))) {
-			line.erase(line.begin());
-		};
+        
+        /* Removes oporator if it hasn't been removed already */
+        if(newOp->getOperation() != Operation::ADD || newOp->getOperation() != Operation::SUB){
+            line.erase(line.begin());
+        }
 
         /* Assign out Input or Wire to operation */
         assigned = false;
@@ -522,9 +516,16 @@ bool Module::getDataType(string type, int *size){
 bool Module::outputModule(string file){
     ofstream out;
     
+    /* Wrong type of output file */
+    if(file.find(".") == string::npos){
+        cout << "Usage: dpgen netlistFile verilogFile (with .v extension)" << endl;
+        return false;
+    }
+    
     out.open(file.c_str());
     
-    if (!out.is_open()) {     // if file is available, open and read
+    /* if file is available, open and read */
+    if (!out.is_open()) {
         cout << "Error opening up file: " << file << endl;
         return false;
     }
@@ -580,59 +581,70 @@ bool Module::outputModule(string file){
  * @param
  * @return
  */
-int Module::criticalPathDelay(){
-    vector<Wire *> wireQueue;
+double Module::criticalPathDelay(){
     vector<Operation *> operationQueue;
-    vector<double> wireDistance;
-    vector<double> operationDist;
-    Wire* currWire;
-    Output* currOut;
-    Operation* currOp;
-    unsigned long queueSize;
+    vector<double> pathDelays;
+    double criticalPath = 0;
     
-    // Search through all operations to initialize queue of vertices with indegree of 0
-    for (int i = 0; i < operations.size(); i++) {
-        // Search through all available input/wires of the specific operation
-        for (int j = 0; j < 3; j++) {
-            // Check if input does not exists
-            if (operations.at(i)->inInput[j] == NULL) {
-                cout << "Failed searching for initial 0 indegree operations (input does not exist when needed)" << endl;
-                return -1;
-            }
-            // Check if wire exists
-            if (operations.at(i)->inWire[j] != NULL) {
-                cout << "Failed searching for initial 0 indegree operations (wire exists when should be input only operation)" << endl;
-            }
-        }
-        // After searching through, should satisfy if operation has only inputs and no wires, then add operation to 0 indegree operations queue
+    /* Put all operations on queue */
+    for (int i = 0; i < (signed)operations.size(); i++) {
         operationQueue.push_back(operations.at(i));
     }
     
-    queueSize = operationQueue.size();
-    while (queueSize != 0) {
-        currOp = operationQueue.front();
-        // If updated variable is a wire, begin looking at its next operations
-        if (currOp->wireNext != NULL) {
-            currWire = currOp->wireNext;
-            for (int i = 0; i < currWire->toOperations.size(); i++) {
-                // If when searching, the current operation is found, skip onto the next iteration
-                if (currOp == currWire->toOperations.at(i)) {
-                    continue;
+    /* Loop until all wire and output delays have been updated */
+    while((signed)operationQueue.size() > 0){
+        
+        /* Iterate through all operations to update delays */
+        for (int i = 0; i < (signed)operations.size(); i++) {
+            bool inDelaysCalculated = true;
+            double tempDelay = 0;
+            double maxInDelay = 0;
+            
+            /* Get the current maximum delay from operation inputs */
+            for(int j = 0; j < NUM_INPUTS; j++){
+                if(operations.at(i)->inWire[j] != NULL){
+                    if(operations.at(i)->inWire[j]->getDelay() == -1){
+                        inDelaysCalculated = false;
+                        break;
+                    }else{
+                        if(maxInDelay < operations.at(i)->inWire[j]->getDelay()){
+                            maxInDelay = operations.at(i)->inWire[j]->getDelay();
+                        }
+                    }
+                }else{
+                    break;
                 }
-                else {
-                    
+            }
+            
+            /* Check if all delay dependencies have been calculated */
+            if(inDelaysCalculated){
+                
+                /* Pass delay of operation to wire out or output */
+                tempDelay = maxInDelay + operations.at(i)->getDelay();
+                if(operations.at(i)->wireNext != NULL){
+                    operations.at(i)->wireNext->setDelay(tempDelay);
+                }else{
+                    operations.at(i)->outNext->setDelay(tempDelay);
+                }
+                
+                /* Remove currently calculated operation from the operation queue */
+                for(int j = 0; j < (signed)operationQueue.size(); j++){
+                    if(operations.at(i)->getOperation() == operationQueue.at(j)->getOperation()
+                           && operations.at(i)->getOpID() == operationQueue.at(j)->getOpID()){
+                        operationQueue.erase(operationQueue.begin() + j);
+                        break;
+                    }
                 }
             }
         }
-        else if (currOp->outNext != NULL) {
-            currOut = currOp->outNext;
-            // At end of critical path, update final distance
-        }
-        else {
-            cout << "Something went wrong when looking at queue (no wire or output result for operaation)" << endl;
-            return -1;
+    }
+    
+    /* Get the maximum critical path from all registers */
+    for(int i = 0; i < (signed)outputs.size(); i++){
+        if(criticalPath < outputs.at(i)->getDelay()){
+            criticalPath = outputs.at(i)->getDelay();
         }
     }
     
-    return 0;
+    return criticalPath;
 }

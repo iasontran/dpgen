@@ -29,12 +29,15 @@ private:
     bool reg;
     int dataWidth;
     string name;
+    double outDelay;
 public:
     Wire(string name, int width, bool usigned, bool reg);
     string getName() { return name; }
     int getWidth() { return dataWidth; }
     bool isUnsigned() { return usigned; }
     bool isRegister() { return reg; }
+    double getDelay() { return outDelay; }
+    void setDelay(double delay) { outDelay = delay; }
     string toString();
     vector<Operation *> toOperations;
 };

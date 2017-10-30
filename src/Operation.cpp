@@ -130,6 +130,8 @@ double Operation::getDelay(){
         case REG:
             return reg_delay[index];
     }
+    
+    return 0;
 }
 
 string Operation::toString(){

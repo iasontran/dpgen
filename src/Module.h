@@ -38,7 +38,7 @@ public:
     string getName() { return name; }
     bool buildModule(string file); /* Builds the data path graph */
     bool outputModule(string file); /* Prints the module in .v format */
-    int criticalPathDelay(); /* Calculates the critical path of the graph */
+    double criticalPathDelay(); /* Calculates the critical path of the graph */
     vector<Operation *> operations;
     vector<Output *> outputs;
     vector<Input *> inputs;

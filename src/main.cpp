@@ -23,28 +23,28 @@ int main(int argc, char *argv[]) {
     
     /* If arguments found is not 3, display user statement and exit */
     if (argc != 3) {
-        cout << "Usage: dpgen netlistFile verilogFile" << endl;
+        cout << "Usage : dpgen netlistFile verilogFile" << endl;
         return EXIT_FAILURE;
     }
-    
-    /* Initialize the module and get module name from arg */
-    string moduleName = argv[OUTFILE];
-    moduleName.erase(moduleName.begin() + moduleName.find("."), moduleName.end());
-    string::size_type index;
-    while((index = moduleName.find('/')) != string::npos){
-        moduleName.erase(moduleName.begin(), moduleName.begin() + index + 1);
+
+    /* Initialize and build module datapath from input file */
+    string name = argv[INFILE];
+    if(name.find(".") != string::npos){
+        name.erase(name.begin() + name.find("."), name.end());
     }
-    module = new Module(moduleName);
-    
-    /* Build module datapath from input file */
+    string::size_type index;
+    while((index = name.find('/')) != string::npos){
+        name.erase(name.begin(), name.begin() + index + 1);
+    }
+    module = new Module(name);
     if (!module->buildModule(argv[INFILE])) {
-        cout << "Failed to build module from input file: " << argv[INFILE] << endl;
+        cout << "Failed to build module from input file : " << argv[INFILE] << endl;
         return EXIT_FAILURE;
     }
     
     /* Output datapath module to .v file */
     if(!module->outputModule(argv[OUTFILE])){
-        cout << "Failed to create output module file: " << argv[OUTFILE] << endl;
+        cout << "Failed to create output module file : " << argv[OUTFILE] << endl;
         return EXIT_FAILURE;
     }
     
