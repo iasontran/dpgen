@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     }
 
     /* Initialize and build module datapath from input file */
-    string name = argv[INFILE];
+    string name = argv[OUTFILE];
     if(name.find(".") != string::npos){
         name.erase(name.begin() + name.find("."), name.end());
     }
