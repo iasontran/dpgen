@@ -5,7 +5,8 @@
  * NetID: ichikasuto, andrewcamps
  * Date: October 21, 207
  *
- * Description:
+ * Description: Operation objects that defines an operation type. Has various functions to calculate the delay of an operation and output
+ * verilog code for a particular operation.
  */
 
 #include "Operation.h"
@@ -23,6 +24,9 @@ double Operation::mod_delay[NUM_SIZES] = { 0.758, 2.149, 16.078, 35.563, 88.142,
 double Operation::inc_delay[NUM_SIZES] = { 1.792, 2.218, 3.111, 3.471, 4.347, 6.200 };
 double Operation::dec_delay[NUM_SIZES] = { 1.792, 2.218, 3.108, 3.701, 4.685, 6.503 };
 
+/**
+ * Constructor
+ */
 Operation::Operation(){
     for(int i = 0; i < NUM_INPUTS; i++){
         inWire[i] = NULL;
@@ -33,6 +37,10 @@ Operation::Operation(){
     wireNext = NULL;
 }
 
+/**
+ * Gets the width parameter of an operation based on various parameters layed out in the spec sheet.
+ * All operations use the width of the output wire except comparator type operation
+ */
 void Operation::calcWidth(){
     int width0;
     int width1;
@@ -46,6 +54,9 @@ void Operation::calcWidth(){
     }
 }
 
+/**
+ * Sets the sign of the operation type based on the input wires to operation
+ */
 void Operation::setSign() {
     bool usigned = true;
     
@@ -78,6 +89,9 @@ void Operation::setSign() {
     sign = usigned ? "" : "S";
 }
 
+/**
+ * Gets the delay of a particular operation based off of the width. Delays came from spec sheet
+ */
 double Operation::getDelay(){
     int index;
     
@@ -134,6 +148,10 @@ double Operation::getDelay(){
     return 0;
 }
 
+/**
+ * To string method that outputs each operation in verilog syntax with correct bit sizes for inputs and outputs as well
+ * as mix sign types
+ */
 string Operation::toString(){
     Wire *outW = NULL;
     Output *out = NULL;

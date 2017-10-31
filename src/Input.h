@@ -1,9 +1,10 @@
-//
-//  Input.h
-//  dpgen
-//
-//  Created by Andrew Camps on 10/22/17.
-//
+/*************/
+/*
+ * File: Input.h
+ * Author: Jason Tran, Andrew Camps
+ * NetID: ichikasuto, andrewcamps
+ * Date: October 20, 2017
+ */
 
 #ifndef Input_h
 #define Input_h

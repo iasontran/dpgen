@@ -5,11 +5,14 @@
  * NetID: ichikasuto, andrewcamps
  * Date: October 21, 207
  *
- * Description:
+ * Description: Output object type. Contains to string method to output verilog code for an output type
  */
 
 #include "Output.h"
 
+/**
+ * Constructor
+ */
 Output::Output(string name, int width, bool usigned){
     this->name = name;
     this->dataWidth = width;
@@ -17,6 +20,9 @@ Output::Output(string name, int width, bool usigned){
     this->outDelay = -1;
 }
 
+/**
+ * To string method outputs verilog code syntax
+ */
 string Output::toString(){
     string width = "";
     string sign = "";

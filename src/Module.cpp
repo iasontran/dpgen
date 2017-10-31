@@ -5,22 +5,22 @@
  * NetID: ichikasuto, andrewcamps
  * Date: October 20, 2017
  *
- * Description:
+ * Description: Module object that has some basic function that will build a graph from inputs, outputs
+ * and operations found in high level code. Parses high level code in file and outputs verilog code. Function
+ * for calculating the critical path of output verilog module code.
  */
 
 #include "Module.h"
 
+/**
+ * Constructor
+ */
 Module::Module(string name){
     this->name = name;
 }
 
 /**
- * @brief Builds the datapath graph
- *
- *
- *
- * @param
- * @return
+ * Builds the module by reading in file
  */
 bool Module::buildModule(string file){
     
@@ -33,12 +33,7 @@ bool Module::buildModule(string file){
 }
 
 /**
- * @brief
- *
- *
- *
- * @param
- * @return
+ * Reads a file line by line
  */
 bool Module::readFile(string file){
     fstream in;
@@ -77,12 +72,7 @@ bool Module::readFile(string file){
 }
 
 /**
- * @brief Tokenizing a string
- *
- *
- *
- * @param
- * @return
+ * Delimeter function that splits a string at spaces and tabs and returns a vector of strings
  */
 vector<string> Module::split(string const &input) {
     istringstream buffer(input);
@@ -91,12 +81,8 @@ vector<string> Module::split(string const &input) {
 }
 
 /**
- * @brief
- *
- *
- *
- * @param
- * @return
+ * Function that parses an individual line passed in as a vector of strings. Takes line and created
+ * matching opjects files based on the line that was read in from the high level code
  */
 bool Module::parseLine(vector<string> line) {
     Type lineType;
@@ -461,16 +447,11 @@ bool Module::parseLine(vector<string> line) {
         }
     }
     
-    return true; // No error
+    return true;
 }
 
 /**
- * @brief
- *
- *
- *
- * @param
- * @return
+ * Calculates the next available operation id
  */
 int Module::getID(Operation::Operations operation){
     int id = 1;
@@ -484,12 +465,7 @@ int Module::getID(Operation::Operations operation){
 }
 
 /**
- * @brief
- *
- *
- *
- * @param
- * @return
+ * Gets the sign and size of a particular data type when parsing high level code file
  */
 bool Module::getDataType(string type, int *size){
     
@@ -521,12 +497,7 @@ bool Module::getDataType(string type, int *size){
 }
 
 /**
- * @brief Prints the module in .v format
- *
- *
- *
- * @param
- * @return
+ * Outputs verilog code to a given input file name after highlevel code has been read in
  */
 bool Module::outputModule(string file){
     ofstream out;
@@ -589,12 +560,9 @@ bool Module::outputModule(string file){
 }
 
 /**
- * @brief Calculates the critical path of the graph
+ * Calculates the critical path of module. Critical path is the longest input to register or
+ * register to register delay. Returns this as a double
  *
- *
- *
- * @param
- * @return
  */
 double Module::criticalPathDelay(){
     vector<Operation *> operationQueue;

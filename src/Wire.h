@@ -4,8 +4,6 @@
  * Author: Jason Tran, Andrew Camps
  * NetID: ichikasuto, andrewcamps
  * Date: October 20, 2017
- *
- * Description:
  */
 
 #ifndef Wire_h

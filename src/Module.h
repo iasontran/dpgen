@@ -1,9 +1,10 @@
-//
-//  Module.h
-//  dpgen
-//
-//  Created by Andrew Camps on 10/22/17.
-//
+/*************/
+/*
+ * File: Module.h
+ * Author: Jason Tran, Andrew Camps
+ * NetID: ichikasuto, andrewcamps
+ * Date: October 20, 2017
+ */
 
 #ifndef Module_h
 #define Module_h

@@ -5,11 +5,14 @@
  * NetID: ichikasuto, andrewcamps
  * Date: October 21, 207
  *
- * Description:
+ * Description: Wire object that is used for constructing graph. Has to string method to output verilog code
  */
 
 #include "Wire.h"
 
+/**
+ * Constructor
+ */
 Wire::Wire(string name, int width, bool usigned, bool reg){
     this->name = name;
     this->dataWidth = width;
@@ -18,6 +21,9 @@ Wire::Wire(string name, int width, bool usigned, bool reg){
     this->outDelay = -1;
 }
 
+/**
+ * To string method outputs verilog code syntax
+ */
 string Wire::toString(){
     string width = "";
     string sign = "";

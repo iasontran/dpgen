@@ -6,7 +6,8 @@
  * NetID: ichikasuto, andrewcamps
  * Date: October 20, 2017
  *
- * Description:
+ * Description: Takes in file name arguments. First arg is highlevel code which is converted to verilog code. Critical path
+ * of module is then calculated
  *
  */
 /**************************************************************************************************/
@@ -18,6 +19,10 @@
 
 using namespace std;
 
+/**
+ * Main function to start program. Reads file for high level code, outputs verilog code and calculates critical
+ * path for verilog module
+ */
 int main(int argc, char *argv[]) {
     Module *module;
     
