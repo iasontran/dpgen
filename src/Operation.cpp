@@ -179,26 +179,46 @@ string Operation::toString(){
     in0n = in0 == NULL ? in0w->getName() : in0->getName();
     if(in0w != NULL){
         if(in0w->getWidth() == width){
-            /* Do nothing */
+            if(!this->isUnsigned() && in0w->isUnsigned()){
+                in0n = "$signed(" + in0n + ")";
+            }
         }else if(in0w->getWidth() > width){
-            in0n = in0n + "[" + to_string(width - 1) + ":0]";
+            if(!this->isUnsigned() && in0w->isUnsigned()){
+                in0n = "$signed(" + in0n + "[" + to_string(width - 1) + ":0])";
+            }else{
+                in0n = in0n + "[" + to_string(width - 1) + ":0]";
+            }
         }else{
             if(!in0w->isUnsigned()){
                 in0n = "{{" + to_string(width - in0w->getWidth()) + "{" + in0n + "[" + to_string(in0w->getWidth() - 1) + "]" + "}}, " + in0n + "}";
             }else{
-                in0n = "{" + to_string(width - in0w->getWidth()) + "'b0, " + in0n + "}";
+                if(!this->isUnsigned()){
+                    in0n = "$signed({" + to_string(width - in0w->getWidth()) + "'b0, " + in0n + "})";
+                }else{
+                    in0n = "{" + to_string(width - in0w->getWidth()) + "'b0, " + in0n + "}";
+                }
             }
         }
     }else{
         if(in0->getWidth() == width){
-            /* Do nothing */
+            if(!this->isUnsigned() && in0->isUnsigned()){
+                in0n = "$signed(" + in0n + ")";
+            }
         }else if(in0->getWidth() > width){
-            in0n = in0n + "[" + to_string(width - 1) + ":0]";
+            if(!this->isUnsigned() && in0->isUnsigned()){
+                in0n = "$signed(" + in0n + "[" + to_string(width - 1) + ":0])";
+            }else{
+                in0n = in0n + "[" + to_string(width - 1) + ":0]";
+            }
         }else{
             if(!in0->isUnsigned()){
                 in0n = "{{" + to_string(width - in0->getWidth()) + "{" + in0n + "[" + to_string(in0->getWidth() - 1) + "]" + "}}, " + in0n + "}";
             }else{
-                in0n = "{" + to_string(width - in0->getWidth()) + "'b0, " + in0n + "}";
+                if(!this->isUnsigned()){
+                    in0n = "$signed({" + to_string(width - in0->getWidth()) + "'b0, " + in0n + "})";
+                }else{
+                    in0n = "{" + to_string(width - in0->getWidth()) + "'b0, " + in0n + "}";
+                }
             }
         }
     }
@@ -207,26 +227,46 @@ string Operation::toString(){
         in1n = in1 == NULL ? in1w->getName() : in1->getName();
         if(in1w != NULL){
             if(in1w->getWidth() == width){
-                /* Do nothing */
+                if(!this->isUnsigned() && in1w->isUnsigned()){
+                    in1n = "$signed(" + in1n + ")";
+                }
             }else if(in1w->getWidth() > width){
-                in1n = in1n + "[" + to_string(width - 1) + ":0]";
+                if(!this->isUnsigned() && in1w->isUnsigned()){
+                    in1n = "$signed(" + in1n + "[" + to_string(width - 1) + ":0])";
+                }else{
+                    in1n = in1n + "[" + to_string(width - 1) + ":0]";
+                }
             }else{
                 if(!in1w->isUnsigned()){
                     in1n = "{{" + to_string(width - in1w->getWidth()) + "{" + in1n + "[" + to_string(in1w->getWidth() - 1) + "]" + "}}, " + in1n + "}";
                 }else{
-                    in1n = "{" + to_string(width - in1w->getWidth()) + "'b0, " + in1n + "}";
+                    if(!this->isUnsigned()){
+                        in1n = "$signed({" + to_string(width - in1w->getWidth()) + "'b0, " + in1n + "})";
+                    }else{
+                        in1n = "{" + to_string(width - in1w->getWidth()) + "'b0, " + in1n + "}";
+                    }
                 }
             }
         }else{
             if(in1->getWidth() == width){
-                /* Do nothing */
+                if(!this->isUnsigned() && in1->isUnsigned()){
+                    in1n = "$signed(" + in1n + ")";
+                }
             }else if(in1->getWidth() > width){
-                in1n = in1n + "[" + to_string(width - 1) + ":0]";
+                if(!this->isUnsigned() && in1->isUnsigned()){
+                    in1n = "$signed(" + in1n + "[" + to_string(width - 1) + ":0])";
+                }else{
+                    in1n = in1n + "[" + to_string(width - 1) + ":0]";
+                }
             }else{
                 if(!in1->isUnsigned()){
                     in1n = "{{" + to_string(width - in1->getWidth()) + "{" + in1n + "[" + to_string(in1->getWidth() - 1) + "]" + "}}, " + in1n + "}";
                 }else{
-                    in1n = "{" + to_string(width - in1->getWidth()) + "'b0, " + in1n + "}";
+                    if(!this->isUnsigned()){
+                        in1n = "$signed({" + to_string(width - in1->getWidth()) + "'b0, " + in1n + "})";
+                    }else{
+                        in1n = "{" + to_string(width - in1->getWidth()) + "'b0, " + in1n + "}";
+                    }
                 }
             }
         }
@@ -304,26 +344,46 @@ string Operation::toString(){
             in2n = in2 == NULL ? in2w->getName() : in2->getName();
             if(in2w != NULL){
                 if(in2w->getWidth() == width){
-                    /* Do nothing */
+                    if(!this->isUnsigned() && in2w->isUnsigned()){
+                        in2n = "$signed(" + in2n + ")";
+                    }
                 }else if(in2w->getWidth() > width){
-                    in2n = in2n + "[" + to_string(width - 1) + ":0]";
+                    if(!this->isUnsigned() && in2w->isUnsigned()){
+                        in2n = "$signed(" + in2n + "[" + to_string(width - 1) + ":0])";
+                    }else{
+                        in2n = in2n + "[" + to_string(width - 1) + ":0]";
+                    }
                 }else{
                     if(!in2w->isUnsigned()){
                         in2n = "{{" + to_string(width - in2w->getWidth()) + "{" + in2n + "[" + to_string(in2w->getWidth() - 1) + "]" + "}}, " + in2n + "}";
                     }else{
-                        in2n = "{" + to_string(width - in2w->getWidth()) + "'b0, " + in2n + "}";
+                        if(!this->isUnsigned()){
+                            in2n = "$signed({" + to_string(width - in2w->getWidth()) + "'b0, " + in2n + "})";
+                        }else{
+                            in2n = "{" + to_string(width - in2w->getWidth()) + "'b0, " + in2n + "}";
+                        }
                     }
                 }
             }else{
                 if(in2->getWidth() == width){
-                    /* Do nothing */
+                    if(!this->isUnsigned() && in2->isUnsigned()){
+                        in2n = "$signed(" + in2n + ")";
+                    }
                 }else if(in2->getWidth() > width){
-                    in2n = in2n + "[" + to_string(width - 1) + ":0]";
+                    if(!this->isUnsigned() && in2->isUnsigned()){
+                        in2n = "$signed(" + in2n + "[" + to_string(width - 1) + ":0])";
+                    }else{
+                        in2n = in2n + "[" + to_string(width - 1) + ":0]";
+                    }
                 }else{
                     if(!in2->isUnsigned()){
                         in2n = "{{" + to_string(width - in2->getWidth()) + "{" + in2n + "[" + to_string(in2->getWidth() - 1) + "]" + "}}, " + in2n + "}";
                     }else{
-                        in2n = "{" + to_string(width - in2->getWidth()) + "'b0, " + in2n + "}";
+                        if(!this->isUnsigned()){
+                            in2n = "$signed({" + to_string(width - in2->getWidth()) + "'b0, " + in2n + "})";
+                        }else{
+                            in2n = "{" + to_string(width - in2->getWidth()) + "'b0, " + in2n + "}";
+                        }
                     }
                 }
             }
