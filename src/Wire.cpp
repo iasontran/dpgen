@@ -20,9 +20,14 @@ Wire::Wire(string name, int width, bool usigned, bool reg){
 
 string Wire::toString(){
     string width = "";
+    string sign = "";
     if(this->dataWidth > 1){
         width = "[" + to_string(this->dataWidth - 1) + ":0] ";
     }
     
-    return "\twire " + width + this->name + ";";
+    if(!this->isUnsigned()){
+        sign = "signed ";
+    }
+    
+    return "\twire " + sign + width + this->name + ";";
 }

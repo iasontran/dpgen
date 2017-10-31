@@ -42,6 +42,7 @@ public:
     void calcWidth();
     double getDelay();
     void setSign();
+    bool isUnsigned() { return usigned; }
     string toString();
     Output *outNext;
     Wire *wireNext;

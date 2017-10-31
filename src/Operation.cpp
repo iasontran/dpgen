@@ -135,54 +135,203 @@ double Operation::getDelay(){
 }
 
 string Operation::toString(){
-    string outName = outNext == NULL ? wireNext->getName() : outNext->getName();
-    string in0 = inWire[0] == NULL ? inInput[0]->getName() : inWire[0]->getName();
-    string in1;
-    string in2;
+    Wire *outW = NULL;
+    Output *out = NULL;
+    Input *in0 = NULL;
+    Wire *in0w = NULL;
+    Input *in1 = NULL;
+    Wire *in1w = NULL;
+    Input *in2 = NULL;
+    Wire *in2w = NULL;
+    string outName;
+    string in0n;
+    string in1n;
+    string in2n;
     
+    /* Input/Output initialization */
+    if(outNext == NULL){
+        outW = wireNext;
+    }else{
+        out = outNext;
+    }
+    if(inWire[0] == NULL){
+        in0 = inInput[0];
+    }else{
+        in0w = inWire[0];
+    }
+    if(inWire[1] == NULL){
+        if(inInput[1] != NULL){
+            in1 = inInput[1];
+        }
+    }else{
+        in1w = inWire[1];
+    }
+    if(inWire[2] == NULL){
+        if(inInput[2] != NULL){
+            in2 = inInput[2];
+        }
+    }else{
+        in2w = inWire[2];
+    }
+    
+    /* Getting proper bit widths and sign types */
+    outName = out == NULL ? outW->getName() : out->getName();
+    in0n = in0 == NULL ? in0w->getName() : in0->getName();
+    if(in0w != NULL){
+        if(in0w->getWidth() == width){
+            /* Do nothing */
+        }else if(in0w->getWidth() > width){
+            in0n = in0n + "[" + to_string(width - 1) + ":0]";
+        }else{
+            if(!in0w->isUnsigned()){
+                in0n = "{{" + to_string(width - in0w->getWidth()) + "{" + in0n + "[" + to_string(in0w->getWidth() - 1) + "]" + "}}, " + in0n + "}";
+            }else{
+                in0n = "{" + to_string(width - in0w->getWidth()) + "'b0, " + in0n + "}";
+            }
+        }
+    }else{
+        if(in0->getWidth() == width){
+            /* Do nothing */
+        }else if(in0->getWidth() > width){
+            in0n = in0n + "[" + to_string(width - 1) + ":0]";
+        }else{
+            if(!in0->isUnsigned()){
+                in0n = "{{" + to_string(width - in0->getWidth()) + "{" + in0n + "[" + to_string(in0->getWidth() - 1) + "]" + "}}, " + in0n + "}";
+            }else{
+                in0n = "{" + to_string(width - in0->getWidth()) + "'b0, " + in0n + "}";
+            }
+        }
+    }
+    
+    if(operation != INC && operation != DEC && operation != REG && operation != SHL && operation != SHR){
+        in1n = in1 == NULL ? in1w->getName() : in1->getName();
+        if(in1w != NULL){
+            if(in1w->getWidth() == width){
+                /* Do nothing */
+            }else if(in1w->getWidth() > width){
+                in1n = in1n + "[" + to_string(width - 1) + ":0]";
+            }else{
+                if(!in1w->isUnsigned()){
+                    in1n = "{{" + to_string(width - in1w->getWidth()) + "{" + in1n + "[" + to_string(in1w->getWidth() - 1) + "]" + "}}, " + in1n + "}";
+                }else{
+                    in1n = "{" + to_string(width - in1w->getWidth()) + "'b0, " + in1n + "}";
+                }
+            }
+        }else{
+            if(in1->getWidth() == width){
+                /* Do nothing */
+            }else if(in1->getWidth() > width){
+                in1n = in1n + "[" + to_string(width - 1) + ":0]";
+            }else{
+                if(!in1->isUnsigned()){
+                    in1n = "{{" + to_string(width - in1->getWidth()) + "{" + in1n + "[" + to_string(in1->getWidth() - 1) + "]" + "}}, " + in1n + "}";
+                }else{
+                    in1n = "{" + to_string(width - in1->getWidth()) + "'b0, " + in1n + "}";
+                }
+            }
+        }
+    }
+    
+    /* Printing operations */
     switch(operation){
         case INC:
-            return "\t" + sign + "INC #(" + to_string(width) + ") inc" + to_string(getOpID()) + "(" + in0 + ", " + outName + ");";
+            return "\t" + sign + "INC #(" + to_string(width) + ") inc" + to_string(getOpID()) + "(" + in0n + ", " + outName + ");";
         case DEC:
-            return "\t" + sign + "DEC #(" + to_string(width) + ") dec" + to_string(getOpID()) + "(" + in0 + ", " + outName + ");";
+            return "\t" + sign + "DEC #(" + to_string(width) + ") dec" + to_string(getOpID()) + "(" + in0n + ", " + outName + ");";
         case ADD:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\t" + sign + "ADD #(" + to_string(width) + ") add" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\t" + sign + "ADD #(" + to_string(width) + ") add" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", " + outName + ");";
         case SUB:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\t" + sign + "SUB #(" + to_string(width) + ") sub" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\t" + sign + "SUB #(" + to_string(width) + ") sub" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", " + outName + ");";
         case MUL:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\t" + sign + "MUL #(" + to_string(width) + ") mul" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\t" + sign + "MUL #(" + to_string(width) + ") mul" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", " + outName + ");";
         case COMP_GT:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\t" + sign + "COMP #(" + to_string(width) + ") comp_gt" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ", , " + ");";
+            outName = out == NULL ? outW->getName() : out->getName();
+            if(outW != NULL){
+                if(outW->getWidth() > 1){
+                    outName = outName + "[0]";
+                }
+            }else{
+                if(out->getWidth() > 1){
+                    outName = outName + "[0]";
+                }
+            }
+            return "\t" + sign + "COMP #(" + to_string(width) + ") comp_gt" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", " + outName + ", , " + ");";
         case COMP_LT:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\t" + sign + "COMP #(" + to_string(width) + ") comp_lt" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", , " + outName + ", " + ");";
+            outName = out == NULL ? outW->getName() : out->getName();
+            if(outW != NULL){
+                if(outW->getWidth() > 1){
+                    outName = outName + "[0]";
+                }
+            }else{
+                if(out->getWidth() > 1){
+                    outName = outName + "[0]";
+                }
+            }
+            return "\t" + sign + "COMP #(" + to_string(width) + ") comp_lt" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", , " + outName + ", " + ");";
         case COMP_EQ:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\t" + sign + "COMP #(" + to_string(width) + ") comp_eq" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", , , " + outName + ");";
+            outName = out == NULL ? outW->getName() : out->getName();
+            if(outW != NULL){
+                if(outW->getWidth() > 1){
+                    outName = outName + "[0]";
+                }
+            }else{
+                if(out->getWidth() > 1){
+                    outName = outName + "[0]";
+                }
+            }
+            return "\t" + sign + "COMP #(" + to_string(width) + ") comp_eq" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", , , " + outName + ");";
         case SHR:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\t" + sign + "SHR #(" + to_string(width) + ") shr" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            in1n = in1 == NULL ? in1w->getName() : in1->getName();
+            return "\t" + sign + "SHR #(" + to_string(width) + ") shr" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", " + outName + ");";
         case SHL:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\t" + sign + "SHL #(" + to_string(width) + ") shl" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            in1n = in1 == NULL ? in1w->getName() : in1->getName();
+            return "\t" + sign + "SHL #(" + to_string(width) + ") shl" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", " + outName + ");";
         case DIV:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\t" + sign + "DIV #(" + to_string(width) + ") div" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\t" + sign + "DIV #(" + to_string(width) + ") div" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", " + outName + ");";
         case MOD:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            return "\t" + sign + "MOD #(" + to_string(width) + ") mod" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + outName + ");";
+            return "\t" + sign + "MOD #(" + to_string(width) + ") mod" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", " + outName + ");";
         case MUX2x1:
-            in1 = inWire[1] == NULL ? inInput[1]->getName() : inWire[1]->getName();
-            in2 = inWire[2] == NULL ? inInput[2]->getName() : inWire[2]->getName();
-            return "\t" + sign + "MUX2x1 #(" + to_string(width) + ") mux" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + in2 + ", " + outName + ");";
+            in0n = in0 == NULL ? in0w->getName() : in0->getName();
+            if(in0w != NULL){
+                if(in0w->getWidth() > 1){
+                    in0n = in0n + "[0]";
+                }
+            }else{
+                if(in0->getWidth() > 1){
+                    in0n = in0n + "[0]";
+                }
+            }
+            in2n = in2 == NULL ? in2w->getName() : in2->getName();
+            if(in2w != NULL){
+                if(in2w->getWidth() == width){
+                    /* Do nothing */
+                }else if(in2w->getWidth() > width){
+                    in2n = in2n + "[" + to_string(width - 1) + ":0]";
+                }else{
+                    if(!in2w->isUnsigned()){
+                        in2n = "{{" + to_string(width - in2w->getWidth()) + "{" + in2n + "[" + to_string(in2w->getWidth() - 1) + "]" + "}}, " + in2n + "}";
+                    }else{
+                        in2n = "{" + to_string(width - in2w->getWidth()) + "'b0, " + in2n + "}";
+                    }
+                }
+            }else{
+                if(in2->getWidth() == width){
+                    /* Do nothing */
+                }else if(in2->getWidth() > width){
+                    in2n = in2n + "[" + to_string(width - 1) + ":0]";
+                }else{
+                    if(!in2->isUnsigned()){
+                        in2n = "{{" + to_string(width - in2->getWidth()) + "{" + in2n + "[" + to_string(in2->getWidth() - 1) + "]" + "}}, " + in2n + "}";
+                    }else{
+                        in2n = "{" + to_string(width - in2->getWidth()) + "'b0, " + in2n + "}";
+                    }
+                }
+            }
+            return "\t" + sign + "MUX2x1 #(" + to_string(width) + ") mux" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", " + in2n + ", " + outName + ");";
         case REG:
-            in1 = inInput[1]->getName();
-            in2 = inInput[2]->getName();
-            return "\t" + sign + "REG #(" + to_string(width) + ") reg" + to_string(getOpID()) + "(" + in0 + ", " + in1 + ", " + in2 + ", " + outName + ");";
+            in1n = inInput[1]->getName();
+            in2n = inInput[2]->getName();
+            return "\t" + sign + "REG #(" + to_string(width) + ") reg" + to_string(getOpID()) + "(" + in0n + ", " + in1n + ", " + in2n + ", " + outName + ");";
     }
     
     return NULL;

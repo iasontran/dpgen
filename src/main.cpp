@@ -49,8 +49,11 @@ int main(int argc, char *argv[]) {
     }
     
     /* Print critical path delay of the module */
-    cout << "Critical Path : " << module->criticalPathDelay() << " ns" << endl;
-    //cout << "Critical Path : " << module->criticalPathDelay2() << " ns" << endl;
+    double criticalPath = module->criticalPathDelay();
+    if(criticalPath == -1){
+        cout << "Failed to calculate critical path" << endl;
+    }
+    cout << "Critical Path : " << criticalPath << " ns" << endl;
     
     return 0;
 }

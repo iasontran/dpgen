@@ -51,8 +51,8 @@ bool Module::readFile(string file){
     }
     
     /* Define Clk and Rst for all modules */
-    this->inputs.push_back(new Input("Clk", 1, false));
-    this->inputs.push_back(new Input("Rst", 1, false));
+    this->inputs.push_back(new Input("Clk", 1, true));
+    this->inputs.push_back(new Input("Rst", 1, true));
     
     while (!in.eof()) {     // execute until last line of file
         string line;
@@ -224,6 +224,21 @@ bool Module::parseLine(vector<string> line) {
         if(!assigned){
             for(int i = 0; i < (signed)this->wires.size(); i++){
                 if(var.compare(wires.at(i)->getName()) == 0){
+                    /* None register operation outputting to register type */
+                    if(wires.at(i)->isRegister() && line.size() > 3){
+                        this->wires.push_back(new Wire(var + "wire", wires.at(i)->getWidth(), wires.at(i)->isUnsigned(), false));
+                        regOp = new Operation();
+                        regOp->setOperation(Operation::REG);
+                        regOp->setOpID(getID(Operation::REG));
+                        newOp->wireNext = wires.back();
+                        regOp->wireNext = wires.at(i);
+                        regOp->inWire[0] = wires.back();
+                        regOp->inInput[1] = inputs.at(0);
+                        regOp->inInput[2] = inputs.at(1);
+                        wires.back()->toOperations.push_back(regOp);
+                        assigned = true;
+                        break;
+                    }
                     newOp->wireNext = wires.at(i);
                     assigned = true;
                     break;
@@ -583,6 +598,7 @@ bool Module::outputModule(string file){
  */
 double Module::criticalPathDelay(){
     vector<Operation *> operationQueue;
+    vector<double> pathDelays;
     double criticalPath = 0;
     
     /* Put all operations on queue */
@@ -594,6 +610,7 @@ double Module::criticalPathDelay(){
     while((signed)operationQueue.size() > 0){
         
         /* Iterate through all operations to update delays */
+        bool opRemoved = false;
         for (int i = 0; i < (signed)operations.size(); i++) {
             bool inDelaysCalculated = true;
             double tempDelay = 0;
@@ -618,12 +635,19 @@ double Module::criticalPathDelay(){
             /* Check if all delay dependencies have been calculated */
             if(inDelaysCalculated){
                 
-                /* Pass delay of operation to wire out or output */
+                /* If operation is a register record input time and reset */
+                if(operations.at(i)->getOperation() == Operation::REG){
+                    pathDelays.push_back(maxInDelay);
+                    maxInDelay = 0;
+                }
+                
+                /* Pass delay of operation output */
                 tempDelay = maxInDelay + operations.at(i)->getDelay();
                 if(operations.at(i)->wireNext != NULL){
                     operations.at(i)->wireNext->setDelay(tempDelay);
                 }else{
                     operations.at(i)->outNext->setDelay(tempDelay);
+                    pathDelays.push_back(tempDelay);
                 }
                 
                 /* Remove currently calculated operation from the operation queue */
@@ -631,96 +655,18 @@ double Module::criticalPathDelay(){
                     if(operations.at(i)->getOperation() == operationQueue.at(j)->getOperation()
                            && operations.at(i)->getOpID() == operationQueue.at(j)->getOpID()){
                         operationQueue.erase(operationQueue.begin() + j);
+                        opRemoved = true;
                         break;
                     }
                 }
             }
         }
-    }
-    
-    /* Get the maximum critical path from all registers */
-    for(int i = 0; i < (signed)outputs.size(); i++){
-        if(criticalPath < outputs.at(i)->getDelay()){
-            criticalPath = outputs.at(i)->getDelay();
-        }
-    }
-    
-    return criticalPath;
-}
-
-/**
- * @brief Calculates the critical path of the graph
- *
- *
- *
- * @param
- * @return
- */
-double Module::criticalPathDelay2(){
-    vector<Operation *> operationQueue;
-    vector<double> pathDelays;
-    double criticalPath = 0;
-    
-    /* Put all operations on queue */
-    for (int i = 0; i < (signed)operations.size(); i++) {
-        operationQueue.push_back(operations.at(i));
-    }
-    
-    /* Loop until all wire and output delays have been updated */
-    while((signed)operationQueue.size() > 0){
         
-        /* Iterate through all operations to update delays */
-        for (int i = 0; i < (signed)operations.size(); i++) {
-            bool inDelaysCalculated = true;
-            double tempDelay = 0;
-            double maxInDelay = 0;
-            
-            /* Get the current maximum delay from operation inputs */
-            for(int j = 0; j < NUM_INPUTS; j++){
-                if(operations.at(i)->inWire[j] != NULL){
-                    /* If in wire is from a register then start new path delay calculation */
-                    if(!operations.at(i)->inWire[j]->isRegister()){
-                        if(operations.at(i)->inWire[j]->getDelay() == -1){
-                            inDelaysCalculated = false;
-                            break;
-                        }else{
-                            if(maxInDelay < operations.at(i)->inWire[j]->getDelay()){
-                                maxInDelay = operations.at(i)->inWire[j]->getDelay();
-                            }
-                        }
-                    }else{
-                        cout << "Infinite LOOP here" << endl;
-                        maxInDelay = 0;
-                        break;
-                    }
-                }else{
-                    break;
-                }
-            }
-            
-            /* Check if all delay dependencies have been calculated */
-            if(inDelaysCalculated){
-                
-                /* Pass delay of operation to wire out, reg out or output */
-                tempDelay = maxInDelay + operations.at(i)->getDelay();
-                if(operations.at(i)->wireNext != NULL){
-                    operations.at(i)->wireNext->setDelay(tempDelay);
-                    pathDelays.push_back(tempDelay);
-                }else{
-                    operations.at(i)->outNext->setDelay(tempDelay);
-                    pathDelays.push_back(tempDelay);
-                }
-                
-                /* Remove currently calculated operation from the operation queue */
-                for(int j = 0; j < (signed)operationQueue.size(); j++){
-                    if(operations.at(i)->getOperation() == operationQueue.at(j)->getOperation()
-                       && operations.at(i)->getOpID() == operationQueue.at(j)->getOpID()){
-                        operationQueue.erase(operationQueue.begin() + j);
-                        break;
-                    }
-                }
-            }
+        if(!opRemoved){
+            cout << "ERROR: Unconnected operation input wire" << endl;
+            return -1;
         }
+        
     }
     
     /* Get the maximum critical path from all registers */
