@@ -4,7 +4,7 @@ Names: Andrew Camps (ECE 574a), Jason Tran (ECE 474a), Steve Miller (ECE 474a)
 
 NetIDs: andrewcamps, ichikasuto, stevemiller
 
-Description: This program converts a behavioral setlist specification into a synthesizable Verilog data path implementation. After creating the Verilog implementation, the program will report the critical path of the datapath. This will be either the longest register to register delay or the longest input to register delay.
+Description: This program converts a behavioral netlist specification into a synthesizable Verilog data path implementation. After creating the Verilog implementation, the program will report the critical path of the datapath. This will be either the longest register to register delay or the longest input to register delay.
 
 The program will detect basic syntax errors such as not declaring particular inputs or trying to use invalid operation components. The components supported in this program are:
 
@@ -15,8 +15,10 @@ The program will detect basic syntax errors such as not declaring particular inp
 
 Team Contribution Descriptions:
 
-Andrew Camps - 
-Jason Tran - 
+Andrew Camps - Worked on various aspects of the including creating a skeleton outline of the project, parsing of input file, creating graph of nodes, outputting to verilog file, and writing critical path algorithm.
+
+Jason Tran - Worked on various aspects of the including creating a skeleton outline of the project, parsing of input file, creating graph of nodes, outputting to verilog file, and writing critical path algorithm.
+
 Steve Miller - 
 
 
